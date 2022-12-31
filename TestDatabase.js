@@ -1,5 +1,5 @@
 //import classes
-const UserInfo = require("./UserInfo.js");
+const UserInfo = require("./model/UserInfo.js");
 
 //import libraries
 const { Pool, Client } = require("pg");

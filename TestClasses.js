@@ -1,11 +1,11 @@
 //import classes
-const UserInfo = require("./UserInfo.js");
-const User = require("./User.js").User;
-const WorkflowCreator = require("./User.js").WorkflowCreator;
-const Exercise = require("./Exercise.js").Exercise;
-const WorkflowExercise = require("./Exercise.js").WorkflowExercise;
-const Workflow = require("./Workflow.js").Workflow;
-const SolvedWorkflow = require("./Workflow.js").SolvedWorkflow;
+const UserInfo = require("./model/UserInfo.js");
+const User = require("./model/User.js").User;
+const WorkflowCreator = require("./model/User.js").WorkflowCreator;
+const Exercise = require("./model/Exercise.js").Exercise;
+const WorkflowExercise = require("./model/Exercise.js").WorkflowExercise;
+const Workflow = require("./model/Workflow.js").Workflow;
+const SolvedWorkflow = require("./model/Workflow.js").SolvedWorkflow;
 
 function testDriverForClasses() {
     let User1 = new UserInfo("serguney", "e@xample.com", "Serguney", "Gumus");

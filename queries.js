@@ -1,11 +1,8 @@
 //import classes
-const UserInfo = require("./UserInfo.js");
-const User = require("./User.js").User;
-const WorkflowCreator = require("./User.js").WorkflowCreator;
-const Exercise = require("./Exercise.js").Exercise;
-const WorkflowExercise = require("./Exercise.js").WorkflowExercise;
-const Workflow = require("./Workflow.js").Workflow;
-const SolvedWorkflow = require("./Workflow.js").SolvedWorkflow;
+const { UserInfo } = require("./model/UserInfo.js");
+const { User, WorkflowCreator } = require("./model/User.js");
+const { Exercise, WorkflowExercise } = require("./model/Exercise.js");
+const { Workflow, SolvedWorkflow } = require("./model/Workflow.js");
 
 //import libraries
 const { Pool, Client } = require("pg");

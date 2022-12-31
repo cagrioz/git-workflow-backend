@@ -1,5 +1,4 @@
-class Exercise
-{
+class Exercise {
     //protected variables
     _exerciseId;
     _exerciseName;
@@ -7,8 +6,7 @@ class Exercise
     _answer;
     _feedback;
     //constructor
-    constructor(exerciseId,exerciseName,description,answer,feedback)
-    {
+    constructor(exerciseId, exerciseName, description, answer, feedback) {
         this._exerciseId = exerciseId;
         this._exerciseName = exerciseName;
         this._description = description;
@@ -16,94 +14,75 @@ class Exercise
         this._feedback = feedback;
     }
     //getters and setters
-    getExerciseId = () =>
-    {
+    getExerciseId = () => {
         return this._exerciseId;
-    }
-    getExerciseName = () =>
-    {
-        return this._exerciseName
-    }
-    getDescription = () =>
-    {
+    };
+    getExerciseName = () => {
+        return this._exerciseName;
+    };
+    getDescription = () => {
         return this._description;
-    }
-    getAnswer = () =>
-    {
+    };
+    getAnswer = () => {
         return this._answer;
-    }
-    getFeedback = () =>
-    {
+    };
+    getFeedback = () => {
         return this._feedback;
-    }
-    setExerciseId = (exerciseId) =>
-    {
+    };
+    setExerciseId = (exerciseId) => {
         this._exerciseId = exerciseId;
-    }
-    setExerciseName = (exerciseName) =>
-    {
+    };
+    setExerciseName = (exerciseName) => {
         this._exerciseName = exerciseName;
-    }
-    setDescription = (description) =>
-    {
+    };
+    setDescription = (description) => {
         this._description = description;
-    }
-    setAnswer = (answer) =>
-    {
+    };
+    setAnswer = (answer) => {
         this._answer = answer;
-    }
-    setfeedback = (feedback) =>
-    {
+    };
+    setfeedback = (feedback) => {
         this._feedback = feedback;
-    }
+    };
 }
 
-class WorkflowExercise extends Exercise
-{
+class WorkflowExercise extends Exercise {
     //private variables
     #workflowId;
     #explonation;
     #order;
 
     //constructor
-    constructor(exerciseId,description,answer,feedback,workflowId,explonation,order)
-    {
+    constructor(exerciseId, description, answer, feedback, workflowId, explonation, order) {
         //call parent constructor
-        super(exerciseId,description,answer,feedback);
+        super(exerciseId, description, answer, feedback);
         this.#workflowId = workflowId;
         this.#explonation = explonation;
         this.#order = order;
     }
 
     //getters and setters
-    getWorkflowId = () =>
-    {
+    getWorkflowId = () => {
         return this.#workflowId;
-    }
-    getExplonation = () =>
-    {
+    };
+    getExplonation = () => {
         return this.#explonation;
-    }
-    getOrder = () =>
-    {
+    };
+    getOrder = () => {
         return this.#order;
-    }
-    setWorkflowId = (workflowId) =>
-    {
+    };
+    setWorkflowId = (workflowId) => {
         this.#workflowId = workflowId;
-    }
-    setExplonation = (explonation) =>
-    {
+    };
+    setExplonation = (explonation) => {
         this.#explonation = explonation;
-    }
-    setOrder = (order) =>
-    {
+    };
+    setOrder = (order) => {
         this.#order = order;
-    }
-
+    };
 }
 
 module.exports = {
     Exercise,
-    WorkflowExercise
-}
+    WorkflowExercise,
+};

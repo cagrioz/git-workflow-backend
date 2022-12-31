@@ -1,18 +1,18 @@
 //import classes
-const UserInfo = require('./UserInfo.js');
-const User = require('./User.js').User;
-const WorkflowCreator = require('./User.js').WorkflowCreator;
-const Exercise = require('./Exercise.js').Exercise;
-const WorkflowExercise = require('./Exercise.js').WorkflowExercise;
-const Workflow = require('./Workflow.js').Workflow;
-const SolvedWorkflow = require('./Workflow.js').SolvedWorkflow;
+const UserInfo = require("./UserInfo.js");
+const User = require("./User.js").User;
+const WorkflowCreator = require("./User.js").WorkflowCreator;
+const Exercise = require("./Exercise.js").Exercise;
+const WorkflowExercise = require("./Exercise.js").WorkflowExercise;
+const Workflow = require("./Workflow.js").Workflow;
+const SolvedWorkflow = require("./Workflow.js").SolvedWorkflow;
 
 //import libraries
-const { Pool, Client } = require('pg');
-const { rows } = require('pg/lib/defaults');
+const { Pool, Client } = require("pg");
+const { rows } = require("pg/lib/defaults");
 
 //define connection string
-const connectionString = 'postgresql://gitworkflowteacherapp:123456789@localhost:5432/WorkflowTeacher';
+const connectionString = "postgresql://gitworkflowteacherapp:123456789@localhost:5432/WorkflowTeacher";
 
 //create connection pool
 const pool = new Pool({

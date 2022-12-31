@@ -1,5 +1,4 @@
-class UserInfo
-{
+class UserInfo {
     //private variables
     #username;
     #email;
@@ -7,8 +6,7 @@ class UserInfo
     #firstname;
 
     //contructor
-    constructor(username, email, firstname, lastname)
-    {
+    constructor(username, email, firstname, lastname) {
         this.#username = username;
         this.#email = email;
         this.#firstname = firstname;
@@ -16,39 +14,31 @@ class UserInfo
     }
 
     //setters and getters
-    getUserName = () =>
-    {
+    getUserName = () => {
         return this.#username;
-    }
+    };
 
-    getEmail = () =>
-    {
+    getEmail = () => {
         return this.#email;
-    }
+    };
 
-    getFirstName = () =>
-    {
+    getFirstName = () => {
         return this.#firstname;
-    }
-    getLastName = () =>
-    {
+    };
+    getLastName = () => {
         return this.#lastname;
-    }
-    setUserName = (username) =>
-    {
+    };
+    setUserName = (username) => {
         this.#username = username;
-    }
-    setEmail = (email) =>
-    {
+    };
+    setEmail = (email) => {
         this.#email = email;
-    }
-    setFirstName = (firstname) =>
-    {
+    };
+    setFirstName = (firstname) => {
         this.#firstname = firstname;
-    }
-    setLastName = (lastname) =>
-    {
+    };
+    setLastName = (lastname) => {
         this.#lastname = lastname;
-    }
+    };
 }
 module.exports = UserInfo;

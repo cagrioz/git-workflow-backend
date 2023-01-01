@@ -37,7 +37,7 @@ const getExercises = (request, response) => {
             );
             exerciseList.push(newExercise);
         }
-        pool.end();
+
         response.status(200).json(exerciseList);
     });
 };

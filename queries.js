@@ -1,15 +1,15 @@
 //import classes
-const { UserInfo } = require("./model/UserInfo.js");
-const { User, WorkflowCreator } = require("./model/User.js");
-const { Exercise, WorkflowExercise } = require("./model/Exercise.js");
-const { Workflow, SolvedWorkflow } = require("./model/Workflow.js");
+const { UserInfo } = require('./model/UserInfo.js');
+const { User, WorkflowCreator } = require('./model/User.js');
+const { Exercise, WorkflowExercise } = require('./model/Exercise.js');
+const { Workflow, SolvedWorkflow } = require('./model/Workflow.js');
 
 //import libraries
-const { Pool, Client } = require("pg");
-const { rows } = require("pg/lib/defaults");
+const { Pool, Client } = require('pg');
+const { rows } = require('pg/lib/defaults');
 
 //define connection string
-const connectionString = "postgresql://gitworkflowteacherapp:123456789@localhost:5432/WorkflowTeacher";
+const connectionString = 'postgresql://gitworkflowteacherapp:123456789@localhost:5432/WorkflowTeacher';
 
 //create connection pool
 const pool = new Pool({
@@ -42,4 +42,10 @@ const getExercises = (request, response) => {
     });
 };
 
-module.exports = { getExercises };
+const getWorkflowById = (request, response) => {
+    const id = request.params.id;
+
+    console.log(id);
+};
+
+module.exports = { getExercises, getWorkflowById };

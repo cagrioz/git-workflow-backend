@@ -45,9 +45,10 @@ const getExercises = (request, response) => {
 const getWorkflowById = (request,respons) =>
 {
     const id = request.params.id
-    pool.query("SELECT * FROM workflow_details WHERE workflow_name = $1", [id], (err,res) => {
+    pool.query("SELECT * FROM workflow_details WHERE workflow_id = $1", [id], (err,res) => {
         if (err) {
             respons.status(200).json("404 no workfow found");
+            return;
         }
         try
         {

@@ -7,3 +7,4 @@ grant all privileges on users to GitWorkflowTeacherApp;
 grant all privileges on workflow to GitWorkflowTeacherApp;
 grant all privileges on workflow_creator to GitWorkflowTeacherApp;
 grant all privileges on workflow_exercise to GitWorkflowTeacherApp;
+grant all privileges on workflow_details to GitWorkflowTeacherApp;

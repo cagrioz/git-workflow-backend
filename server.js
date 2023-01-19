@@ -15,6 +15,8 @@ app.get('/', (request, response) => {
 
 app.get('/exercises', db.getExercises);
 
+app.get('/workflows', db.getWorkflows);
+
 app.get('/workflow/:id', db.getWorkflowById);
 
 app.listen(port, () => {

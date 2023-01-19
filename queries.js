@@ -54,7 +54,7 @@ const getWorkflowById = (request,respons) =>
         {
             wf_id = res.rows[0].workflow_id;
             wf_name = res.rows[0].workflow_name;
-            wf_description = res.rows[0].explanation;
+            wf_description = res.rows[0].workflow_description;
             //create workflow object
         let newWorkflow = new Workflow (
             wf_id,

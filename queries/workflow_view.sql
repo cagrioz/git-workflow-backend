@@ -1,5 +1,6 @@
+drop view workflow_details;
 CREATE VIEW workflow_details AS
-SELECT wf.workflow_id, wf.workflow_name, we.explanation, we.order_, e.exercise_id, e.description, e.answer,
+SELECT wf.workflow_id, wf.workflow_name, wf.workflow_description,we.explanation, we.order_, e.exercise_id, e.description, e.answer,
 e.feedback, e.exercise_name
 FROM
 workflow wf

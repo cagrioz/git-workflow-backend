@@ -49,15 +49,15 @@ class Exercise {
 class WorkflowExercise extends Exercise {
     //private variables
     #workflowId;
-    #explonation;
+    #explanation;
     #order;
 
     //constructor
-    constructor(exerciseId, description, answer, feedback, workflowId, explonation, order) {
+    constructor(exerciseId, description, answer, feedback, workflowId, explanation, order) {
         //call parent constructor
         super(exerciseId, description, answer, feedback);
         this.#workflowId = workflowId;
-        this.#explonation = explonation;
+        this.#explanation = explanation;
         this.#order = order;
     }
 
@@ -65,8 +65,8 @@ class WorkflowExercise extends Exercise {
     getWorkflowId = () => {
         return this.#workflowId;
     };
-    getExplonation = () => {
-        return this.#explonation;
+    getExplanation = () => {
+        return this.#explanation;
     };
     getOrder = () => {
         return this.#order;
@@ -74,8 +74,8 @@ class WorkflowExercise extends Exercise {
     setWorkflowId = (workflowId) => {
         this.#workflowId = workflowId;
     };
-    setExplonation = (explonation) => {
-        this.#explonation = explonation;
+    setExplanation = (explanation) => {
+        this.#explanation = explanation;
     };
     setOrder = (order) => {
         this.#order = order;

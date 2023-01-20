@@ -74,11 +74,13 @@ const getWorkflowById = (request, response) => {
 
     pool.query('SELECT * FROM workflow_details WHERE workflow_id = $1', [id], (err, res) => {
         if (err) {
+            console.log(err);
             throw Error;
         }
+
         wf_id = res.rows[0].workflow_id;
         wf_name = res.rows[0].workflow_name;
-        wf_description = res.rows[0].explanation;
+        wf_description = res.rows[0].workflow_description;
 
         //create workflow object
         let newWorkflow = new Workflow(wf_id, wf_name, wf_description);
@@ -86,6 +88,7 @@ const getWorkflowById = (request, response) => {
         let length = res.rows.length;
         for (i = 0; i < length; i++) {
             //create a new exercise object
+
             let newExercise = new Exercise(
                 res.rows[i].exercise_id,
                 res.rows[i].exercise_name,
@@ -93,6 +96,19 @@ const getWorkflowById = (request, response) => {
                 res.rows[i].answer,
                 res.rows[i].feedback
             );
+
+            /*
+            let newWorkflowExercise = new WorkflowExercise(
+                res.rows[i].exercise_id,
+                res.rows[i].description,
+                res.rows[i].answer,
+                res.rows[i].feedback,
+                res.rows[i].workflow_id,
+                res.rows[i].explanation,
+                res.rows[i].order
+            );
+            */
+
             newWorkflow._exerciseList.push(newExercise);
         }
         response.status(200).json(newWorkflow);

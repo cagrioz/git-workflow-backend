@@ -10,5 +10,6 @@
         "no-console": "off",
         "security/detect-object-injection": "off",
         "semi": ["error", "always"]
-    }
+    },
+    "ignorePatterns": ["model/"]
 }

@@ -3,7 +3,6 @@ const { Workflow } = require('./model/Workflow.js');
 
 //import libraries
 const { Pool } = require('pg');
-const { rows } = require('pg/lib/defaults');
 
 //define connection string
 const connectionString =
@@ -24,7 +23,7 @@ const getExercises = (request, response) => {
         let exerciseList = [];
         //get number of exercises
         let length = res.rows.length;
-        for (i = 0; i < length; i++) {
+        for (let i = 0; i < length; i++) {
             //create a new exercise object
             let newExercise = new Exercise(
                 res.rows[i].exercise_id,
@@ -52,7 +51,7 @@ const getWorkflows = (request, response) => {
         // Get number of workflows
         let length = res.rows.length;
 
-        for (i = 0; i < length; i++) {
+        for (let i = 0; i < length; i++) {
             // Create a new workflow object
             let newWorkflow = new Workflow(
                 res.rows[i].workflow_id,
@@ -79,15 +78,15 @@ const getWorkflowById = (request, response) => {
                 throw Error;
             }
 
-            wf_id = res.rows[0].workflow_id;
-            wf_name = res.rows[0].workflow_name;
-            wf_description = res.rows[0].workflow_description;
+            let wf_id = res.rows[0].workflow_id;
+            let wf_name = res.rows[0].workflow_name;
+            let wf_description = res.rows[0].workflow_description;
 
             //create workflow object
             let newWorkflow = new Workflow(wf_id, wf_name, wf_description);
             //get number of exercises
             let length = res.rows.length;
-            for (i = 0; i < length; i++) {
+            for (let i = 0; i < length; i++) {
                 //create a new exercise object
 
                 let newExercise = new Exercise(

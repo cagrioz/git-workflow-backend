@@ -2,7 +2,7 @@ const { Exercise } = require('./model/Exercise.js');
 const { Workflow } = require('./model/Workflow.js');
 
 //import libraries
-const { Pool, Client } = require('pg');
+const { Pool } = require('pg');
 const { rows } = require('pg/lib/defaults');
 
 //define connection string

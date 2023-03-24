@@ -1,15 +1,13 @@
-//import classes
-const { UserInfo } = require('./model/UserInfo.js');
-const { User, WorkflowCreator } = require('./model/User.js');
-const { Exercise, WorkflowExercise } = require('./model/Exercise.js');
-const { Workflow, SolvedWorkflow } = require('./model/Workflow.js');
+const { Exercise } = require('./model/Exercise.js');
+const { Workflow } = require('./model/Workflow.js');
 
 //import libraries
 const { Pool, Client } = require('pg');
 const { rows } = require('pg/lib/defaults');
 
 //define connection string
-const connectionString = 'postgresql://gitworkflowteacherapp:123456789@localhost:5432/WorkflowTeacher';
+const connectionString =
+    'postgresql://gitworkflowteacherapp:123456789@localhost:5432/WorkflowTeacher';
 
 //create connection pool
 const pool = new Pool({
@@ -72,32 +70,35 @@ const getWorkflows = (request, response) => {
 const getWorkflowById = (request, response) => {
     const id = request.params.id;
 
-    pool.query('SELECT * FROM workflow_details WHERE workflow_id = $1', [id], (err, res) => {
-        if (err) {
-            console.log(err);
-            throw Error;
-        }
+    pool.query(
+        'SELECT * FROM workflow_details WHERE workflow_id = $1',
+        [id],
+        (err, res) => {
+            if (err) {
+                console.log(err);
+                throw Error;
+            }
 
-        wf_id = res.rows[0].workflow_id;
-        wf_name = res.rows[0].workflow_name;
-        wf_description = res.rows[0].workflow_description;
+            wf_id = res.rows[0].workflow_id;
+            wf_name = res.rows[0].workflow_name;
+            wf_description = res.rows[0].workflow_description;
 
-        //create workflow object
-        let newWorkflow = new Workflow(wf_id, wf_name, wf_description);
-        //get number of exercises
-        let length = res.rows.length;
-        for (i = 0; i < length; i++) {
-            //create a new exercise object
+            //create workflow object
+            let newWorkflow = new Workflow(wf_id, wf_name, wf_description);
+            //get number of exercises
+            let length = res.rows.length;
+            for (i = 0; i < length; i++) {
+                //create a new exercise object
 
-            let newExercise = new Exercise(
-                res.rows[i].exercise_id,
-                res.rows[i].exercise_name,
-                res.rows[i].description,
-                res.rows[i].answer,
-                res.rows[i].feedback
-            );
+                let newExercise = new Exercise(
+                    res.rows[i].exercise_id,
+                    res.rows[i].exercise_name,
+                    res.rows[i].description,
+                    res.rows[i].answer,
+                    res.rows[i].feedback
+                );
 
-            /*
+                /*
             let newWorkflowExercise = new WorkflowExercise(
                 res.rows[i].exercise_id,
                 res.rows[i].description,
@@ -109,10 +110,11 @@ const getWorkflowById = (request, response) => {
             );
             */
 
-            newWorkflow._exerciseList.push(newExercise);
+                newWorkflow._exerciseList.push(newExercise);
+            }
+            response.status(200).json(newWorkflow);
         }
-        response.status(200).json(newWorkflow);
-    });
+    );
 };
 
 module.exports = { getExercises, getWorkflows, getWorkflowById };

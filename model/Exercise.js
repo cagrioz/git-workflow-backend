@@ -53,7 +53,15 @@ class WorkflowExercise extends Exercise {
     #order;
 
     //constructor
-    constructor(exerciseId, description, answer, feedback, workflowId, explanation, order) {
+    constructor(
+        exerciseId,
+        description,
+        answer,
+        feedback,
+        workflowId,
+        explanation,
+        order
+    ) {
         //call parent constructor
         super(exerciseId, description, answer, feedback);
         this.#workflowId = workflowId;

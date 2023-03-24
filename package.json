@@ -5,23 +5,40 @@
     "main": "Exercise.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "start": "nodemon server.js"
+        "start": "nodemon server.js",
+        "lint": "eslint . --fix",
+        "precommit": "lint-staged"
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/serguney-gumus/GitWorkflowTeacherBackend.git"
+        "url": "git+https://github.com/cagrioz/git-workflow-backend.git"
     },
     "keywords": [],
     "author": "",
     "license": "ISC",
     "bugs": {
-        "url": "https://github.com/serguney-gumus/GitWorkflowTeacherBackend/issues"
+        "url": "https://github.com/cagrioz/git-workflow-backend/issues"
     },
-    "homepage": "https://github.com/serguney-gumus/GitWorkflowTeacherBackend#readme",
+    "homepage": "https://github.com/cagrioz/git-workflow-backend#readme",
     "dependencies": {
         "cors": "^2.8.5",
         "express": "^4.18.2",
         "nodemon": "^2.0.20",
         "pg": "^8.8.0"
+    },
+    "lint-staged": {
+        "*.js": [
+            "npm run lint",
+            "git add"
+        ]
+    },
+    "devDependencies": {
+        "eslint": "^8.36.0",
+        "eslint-config-node": "^4.1.0",
+        "eslint-config-prettier": "^8.8.0",
+        "eslint-plugin-node": "^11.1.0",
+        "eslint-plugin-prettier": "^4.2.1",
+        "eslint-plugin-security": "^1.7.1",
+        "prettier": "^2.8.7"
     }
 }

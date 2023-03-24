@@ -1,0 +1,15 @@
+{
+    "extends": [
+        "eslint:recommended",
+        "plugin:node/recommended",
+        "plugin:security/recommended",
+        "prettier"
+    ],
+    "plugins": ["node", "security", "prettier"],
+    "rules": {
+        "no-console": "off",
+        "security/detect-object-injection": "off",
+        "semi": ["error", "always"]
+    },
+    "ignorePatterns": ["model/"]
+}

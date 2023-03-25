@@ -4,15 +4,15 @@ const { Workflow } = require('./model/Workflow.js');
 //import libraries
 const { Pool } = require('pg');
 
-//define connection string
-const connectionString =
-    'postgresql://gitworkflowteacherapp:123456789@localhost:5432/WorkflowTeacher';
+
 
 //create connection pool
 const pool = new Pool({
-    connectionString: connectionString,
-});
-
+    connectionString: process.env.DATABASE_URL,
+    ssl: {
+      rejectUnauthorized: false
+    }
+  });
 //method to create list of exercise objects
 const getExercises = (request, response) => {
     pool.query('Select * from public."exercises"', (err, res) => {

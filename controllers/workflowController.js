@@ -1,46 +1,10 @@
-const { Exercise } = require('./model/Exercise.js');
-const { Workflow } = require('./model/Workflow.js');
+const { Workflow } = require('../model/Workflow.js');
+const { Exercise } = require('../model/Exercise.js');
 
-//import libraries
-const { Pool } = require('pg');
-
-//define connection string
-const connectionString =
-    'postgresql://gitworkflowteacherapp:123456789@localhost:5432/WorkflowTeacher';
-
-//create connection pool
-const pool = new Pool({
-    connectionString: connectionString,
-});
-
-//method to create list of exercise objects
-const getExercises = (request, response) => {
-    pool.query('Select * from public."exercises"', (err, res) => {
-        if (err) {
-            throw Error;
-        }
-        //create an empty list for exercises
-        let exerciseList = [];
-        //get number of exercises
-        let length = res.rows.length;
-        for (let i = 0; i < length; i++) {
-            //create a new exercise object
-            let newExercise = new Exercise(
-                res.rows[i].exercise_id,
-                res.rows[i].exercise_name,
-                res.rows[i].description,
-                res.rows[i].answer,
-                res.rows[i].feedback
-            );
-            exerciseList.push(newExercise);
-        }
-
-        response.status(200).json(exerciseList);
-    });
-};
+const db = require('../db.js');
 
 const getWorkflows = (request, response) => {
-    pool.query('SELECT * FROM WORKFLOW ORDER BY workflow_id', (err, res) => {
+    db.query('SELECT * FROM WORKFLOW ORDER BY workflow_id', (err, res) => {
         if (err) {
             throw Error;
         }
@@ -69,7 +33,7 @@ const getWorkflows = (request, response) => {
 const getWorkflowById = (request, response) => {
     const id = request.params.id;
 
-    pool.query(
+    db.query(
         'SELECT * FROM workflow_details WHERE workflow_id = $1',
         [id],
         (err, res) => {
@@ -102,4 +66,4 @@ const getWorkflowById = (request, response) => {
     );
 };
 
-module.exports = { getExercises, getWorkflows, getWorkflowById };
+module.exports = { getWorkflows, getWorkflowById };

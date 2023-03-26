@@ -1,4 +1,4 @@
-const { Exercise } = require('../model/Exercise.js');
+const { Exercise } = require('../models/Exercise.js');
 const db = require('../db.js');
 
 //method to create list of exercise objects

@@ -1,5 +1,5 @@
-const { Workflow } = require('../model/Workflow.js');
-const { Exercise } = require('../model/Exercise.js');
+const { Workflow } = require('../models/Workflow.js');
+const { Exercise } = require('../models/Exercise.js');
 
 const db = require('../db.js');
 

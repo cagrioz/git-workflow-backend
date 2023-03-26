@@ -15,5 +15,5 @@
             { "ignores": ["modules"] }
         ]
     },
-    "ignorePatterns": ["model/"]
+    "ignorePatterns": ["models/"]
 }

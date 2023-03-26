@@ -117,3 +117,5 @@ const getWorkflowById = (request, response) => {
 };
 
 module.exports = { getExercises, getWorkflows, getWorkflowById };
+
+console.log(fo);

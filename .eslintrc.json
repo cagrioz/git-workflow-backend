@@ -9,7 +9,11 @@
     "rules": {
         "no-console": "off",
         "security/detect-object-injection": "off",
-        "semi": ["error", "always"]
+        "semi": ["error", "always"],
+        "node/no-unsupported-features/es-syntax": [
+            "error",
+            { "ignores": ["modules"] }
+        ]
     },
     "ignorePatterns": ["model/"]
 }

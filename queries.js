@@ -87,8 +87,6 @@ const getWorkflowById = (request, response) => {
             //get number of exercises
             let length = res.rows.length;
             for (let i = 0; i < length; i++) {
-                //create a new exercise object
-
                 let newExercise = new Exercise(
                     res.rows[i].exercise_id,
                     res.rows[i].exercise_name,
@@ -96,18 +94,6 @@ const getWorkflowById = (request, response) => {
                     res.rows[i].answer,
                     res.rows[i].feedback
                 );
-
-                /*
-            let newWorkflowExercise = new WorkflowExercise(
-                res.rows[i].exercise_id,
-                res.rows[i].description,
-                res.rows[i].answer,
-                res.rows[i].feedback,
-                res.rows[i].workflow_id,
-                res.rows[i].explanation,
-                res.rows[i].order
-            );
-            */
 
                 newWorkflow._exerciseList.push(newExercise);
             }

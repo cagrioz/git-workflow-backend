@@ -7,7 +7,10 @@
         "test": "echo \"Error: no test specified\" && exit 1",
         "start": "nodemon server.js",
         "lint": "eslint . --fix",
-        "precommit": "lint-staged"
+        "precommit": "lint-staged",
+        "prepare": "husky install",
+        "prettier:write": "prettier --write .",
+        "prettier:check": "prettier --check ."
     },
     "repository": {
         "type": "git",
@@ -39,6 +42,7 @@
         "eslint-plugin-node": "^11.1.0",
         "eslint-plugin-prettier": "^4.2.1",
         "eslint-plugin-security": "^1.7.1",
+        "husky": "^8.0.3",
         "prettier": "^2.8.7"
     }
 }

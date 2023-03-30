@@ -5,6 +5,7 @@ const db = require('../db.js');
 const getExercises = (request, response) => {
     db.query('Select * from public."exercises"', (err, res) => {
         if (err) {
+            response.status(200).json("no exercise list found");
             throw Error;
         }
         //create an empty list for exercises

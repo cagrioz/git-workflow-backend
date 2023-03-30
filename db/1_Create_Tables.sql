@@ -1,3 +1,12 @@
+	DROP VIEW IF EXISTS workflow_details;
+	DROP TABLE IF EXISTS Solve;
+	DROP TABLE IF EXISTS Workflow_Exercise;
+	DROP TABLE IF EXISTS Workflow_Creator;
+	DROP TABLE IF EXISTS Users;
+	DROP TABLE IF EXISTS User_Info;
+	DROP TABLE IF EXISTS Workflow;
+	DROP TABLE IF EXISTS Exercises;
+	DROP USER IF EXISTS GitWorkflowTeacherApp;
 
 	CREATE TABLE Exercises (
 		exercise_id INTEGER PRIMARY KEY,

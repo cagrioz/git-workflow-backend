@@ -1,56 +1,56 @@
 class Exercise {
-    //protected variables
-    _exerciseId;
-    _exerciseName;
-    _description;
-    _answer;
-    _feedback;
+    //variables
+    exerciseId;
+    exerciseName;
+    description;
+    answer;
+    feedback;
     //constructor
     constructor(exerciseId, exerciseName, description, answer, feedback) {
-        this._exerciseId = exerciseId;
-        this._exerciseName = exerciseName;
-        this._description = description;
-        this._answer = answer;
-        this._feedback = feedback;
+        this.exerciseId = exerciseId;
+        this.exerciseName = exerciseName;
+        this.description = description;
+        this.answer = answer;
+        this.feedback = feedback;
     }
     //getters and setters
     getExerciseId = () => {
-        return this._exerciseId;
+        return this.exerciseId;
     };
     getExerciseName = () => {
-        return this._exerciseName;
+        return this.exerciseName;
     };
     getDescription = () => {
-        return this._description;
+        return this.description;
     };
     getAnswer = () => {
-        return this._answer;
+        return this.answer;
     };
     getFeedback = () => {
-        return this._feedback;
+        return this.feedback;
     };
     setExerciseId = (exerciseId) => {
-        this._exerciseId = exerciseId;
+        this.exerciseId = exerciseId;
     };
     setExerciseName = (exerciseName) => {
-        this._exerciseName = exerciseName;
+        this.exerciseName = exerciseName;
     };
     setDescription = (description) => {
-        this._description = description;
+        this.description = description;
     };
     setAnswer = (answer) => {
-        this._answer = answer;
+        this.answer = answer;
     };
     setfeedback = (feedback) => {
-        this._feedback = feedback;
+        this.feedback = feedback;
     };
 }
 
 class WorkflowExercise extends Exercise {
-    //private variables
-    #workflowId;
-    #explanation;
-    #order;
+    //variables
+    workflowId;
+    explanation;
+    order;
 
     //constructor
     constructor(
@@ -64,29 +64,29 @@ class WorkflowExercise extends Exercise {
     ) {
         //call parent constructor
         super(exerciseId, description, answer, feedback);
-        this.#workflowId = workflowId;
-        this.#explanation = explanation;
-        this.#order = order;
+        this.workflowId = workflowId;
+        this.explanation = explanation;
+        this.order = order;
     }
 
     //getters and setters
     getWorkflowId = () => {
-        return this.#workflowId;
+        return this.workflowId;
     };
     getExplanation = () => {
-        return this.#explanation;
+        return this.explanation;
     };
     getOrder = () => {
-        return this.#order;
+        return this.order;
     };
     setWorkflowId = (workflowId) => {
-        this.#workflowId = workflowId;
+        this.workflowId = workflowId;
     };
     setExplanation = (explanation) => {
-        this.#explanation = explanation;
+        this.explanation = explanation;
     };
     setOrder = (order) => {
-        this.#order = order;
+        this.order = order;
     };
 }
 

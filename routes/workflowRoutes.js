@@ -5,6 +5,6 @@ const router = express.Router();
 
 router.get('/', workflowController.getWorkflows);
 
-router.get('/:id', workflowController.getWorkflowById);
+router.get('/:id', workflowController.getWorkflowByName);
 
 module.exports = router;

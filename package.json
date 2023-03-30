@@ -1,48 +1,50 @@
 {
-    "name": "git-workflow-teacher",
-    "version": "1.0.0",
-    "description": "",
-    "main": "Exercise.js",
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
-        "start": "nodemon server.js",
-        "lint": "eslint . --fix",
-        "precommit": "lint-staged",
-        "prepare": "husky install",
-        "prettier:write": "prettier --write .",
-        "prettier:check": "prettier --check ."
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/cagrioz/git-workflow-backend.git"
-    },
-    "keywords": [],
-    "author": "",
-    "license": "ISC",
-    "bugs": {
-        "url": "https://github.com/cagrioz/git-workflow-backend/issues"
-    },
-    "homepage": "https://github.com/cagrioz/git-workflow-backend#readme",
-    "dependencies": {
-        "cors": "^2.8.5",
-        "express": "^4.18.2",
-        "nodemon": "^2.0.20",
-        "pg": "^8.8.0"
-    },
-    "lint-staged": {
-        "*.js": [
-            "npm run lint",
-            "git add"
-        ]
-    },
-    "devDependencies": {
-        "eslint": "^8.36.0",
-        "eslint-config-node": "^4.1.0",
-        "eslint-config-prettier": "^8.8.0",
-        "eslint-plugin-node": "^11.1.0",
-        "eslint-plugin-prettier": "^4.2.1",
-        "eslint-plugin-security": "^1.7.1",
-        "husky": "^8.0.3",
-        "prettier": "^2.8.7"
-    }
+  "name": "git-workflow-teacher",
+  "version": "1.0.0",
+  "description": "-   install Visual Studio Code\r -   install Node.js\r -   run following command in terminal to update all dependencies \"npm install\"\r -   execute \"npm init\" in app directory on VS Code terminal\r -   install Express in the app diractory with following command on VS Code terminal \"npm install express\"\r -   run the server.js and the program will be ready on the port 8000",
+  "main": "Exercise.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js",
+    "lint": "eslint . --fix",
+    "precommit": "lint-staged",
+    "prepare": "husky install",
+    "prettier:write": "prettier --write .",
+    "prettier:check": "prettier --check ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cagrioz/git-workflow-backend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cagrioz/git-workflow-backend/issues"
+  },
+  "homepage": "https://github.com/cagrioz/git-workflow-backend#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "nodemon": "^2.0.20",
+    "pg": "^8.8.0",
+    "sql-template-strings": "^2.2.2",
+    "sql-template-tag": "^5.0.3"
+  },
+  "lint-staged": {
+    "*.js": [
+      "npm run lint",
+      "git add"
+    ]
+  },
+  "devDependencies": {
+    "eslint": "^8.36.0",
+    "eslint-config-node": "^4.1.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-security": "^1.7.1",
+    "husky": "^8.0.3",
+    "prettier": "^2.8.7"
+  }
 }

@@ -9,14 +9,14 @@
 	DROP USER IF EXISTS GitWorkflowTeacherApp;
 
 	CREATE TABLE Exercises (
-		exercise_id INTEGER PRIMARY KEY,
+		exercise_id SERIAL PRIMARY KEY,
 		description TEXT,
 		answer TEXT,
 		feedback TEXT
 	);
 
 	CREATE TABLE Workflow (
-		workflow_id INTEGER PRIMARY KEY,
+		workflow_id SERIAL PRIMARY KEY,
 		workflow_name TEXT,
 		workflow_description TEXT
 	);
@@ -24,12 +24,13 @@
 	CREATE TABLE User_Info (
 		username TEXT PRIMARY KEY,
 		email TEXT UNIQUE,
+		password TEXT,
 		lastname TEXT,
 		firstname TEXT
 	);
 
 	CREATE TABLE Users (
-		user_id INTEGER PRIMARY KEY,
+		user_id SERIAL PRIMARY KEY,
 		fk_username TEXT REFERENCES User_Info(username),
 		fk_email TEXT REFERENCES User_Info(email)
 	);

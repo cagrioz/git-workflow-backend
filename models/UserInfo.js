@@ -4,11 +4,12 @@ class UserInfo {
     email;
     lastname;
     firstname;
-
+    password;
     //contructor
-    constructor(username, email, firstname, lastname) {
+    constructor(username, email, password,firstname, lastname) {
         this.username = username;
         this.email = email;
+        this.password = password
         this.firstname = firstname;
         this.lastname = lastname;
     }
@@ -28,6 +29,9 @@ class UserInfo {
     getLastName = () => {
         return this.lastname;
     };
+    getPassword = () => {
+        return this.password;
+    }
     setUserName = (username) => {
         this.username = username;
     };
@@ -40,5 +44,8 @@ class UserInfo {
     setLastName = (lastname) => {
         this.lastname = lastname;
     };
+    setPassword = (password) => {
+        this.password = password;
+    }
 }
-module.exports = UserInfo;
+module.exports = {UserInfo};

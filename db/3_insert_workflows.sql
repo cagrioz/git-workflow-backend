@@ -1,6 +1,6 @@
 
-INSERT INTO Workflow (workflow_id, workflow_name, workflow_description)
-VALUES (1, 'feature', '<p><b>The Feature Branch Workflow</b> is a flexible and efficient workflow for managing and collaborating on software development projects. 
+INSERT INTO Workflow (workflow_name, workflow_description)
+VALUES ('feature', '<p><b>The Feature Branch Workflow</b> is a flexible and efficient workflow for managing and collaborating on software development projects. 
 It is based on the use of feature branches, which allow developers to work on new features or bug fixes in isolation from the main codebase.</p>
 <p><b>Why should you learn Feature Branch Workflow?</b></p>
 <ul>
@@ -37,8 +37,8 @@ It is based on the use of feature branches, which allow developers to work on ne
 </ul>');
 
 
-INSERT INTO Workflow (workflow_id, workflow_name, workflow_description)
-VALUES (2, 'custom', '<p><b>The Custom Workflow</b> is a tailored approach to software development that is tailored to the specific needs and constraints of a project or team.
+INSERT INTO Workflow (workflow_name, workflow_description)
+VALUES ('custom', '<p><b>The Custom Workflow</b> is a tailored approach to software development that is tailored to the specific needs and constraints of a project or team.
  It is not based on any specific methodology, but rather a combination of different practices and tools that are chosen to meet the unique requirements of the project.</p>
 <p><b>Why should you learn Custom Workflow?</b></p>
 

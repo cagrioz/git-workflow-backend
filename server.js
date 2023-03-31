@@ -7,7 +7,7 @@ const cors = require('cors');
 const workflowRoutes = require('./routes/workflowRoutes.js');
 const exerciseRoutes = require('./routes/exerciseRoutes.js');
 const registerRoutes = require('./routes/registerRoutes.js');
-
+const loginRoutes = require('./routes/loginRoutes.js');
 // enable cors
 app.use(cors());
 
@@ -20,6 +20,8 @@ app.use('/exercises', exerciseRoutes);
 app.use('/workflows', workflowRoutes);
 
 app.use('/register', registerRoutes);
+
+app.use('/login', loginRoutes);
 
 app.listen(port, () => {
     console.log(`App running on port ${port}.`);

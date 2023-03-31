@@ -32,7 +32,7 @@ class User {
 }
 
 class WorkflowCreator extends User {
-    //private variable
+    //variables
     workflowId;
     workflowList;
 
@@ -40,18 +40,11 @@ class WorkflowCreator extends User {
     constructor(userId, userName, email, workflowId) {
         //call parent constructor
         super(userId, userName, email);
-        this.workflowId = workflowId;
         this.workflowList = [];
     }
     //getters and setters
-    getWorkflowId = () => {
-        return this.workflowId;
-    };
     getWorkflowList = () => {
         return this.workflowList;
-    };
-    setWorkflowId = (workflowId) => {
-        this.workflowId = workflowId;
     };
     setWorkflowList = (workflowList) => {
         this.workflowList = workflowList;

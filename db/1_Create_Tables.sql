@@ -2,7 +2,6 @@
 	DROP TABLE IF EXISTS Solve;
 	DROP TABLE IF EXISTS Workflow_Exercise;
 	DROP TABLE IF EXISTS Workflow_Creator;
-	DROP TABLE IF EXISTS Users;
 	DROP TABLE IF EXISTS User_Info;
 	DROP TABLE IF EXISTS Workflow;
 	DROP TABLE IF EXISTS Exercises;
@@ -22,17 +21,12 @@
 	);
 
 	CREATE TABLE User_Info (
-		username TEXT PRIMARY KEY,
+		user_id SERIAL PRIMARY KEY,
+		username TEXT UNIQUE,
 		email TEXT UNIQUE,
 		password TEXT,
 		lastname TEXT,
 		firstname TEXT
-	);
-
-	CREATE TABLE Users (
-		user_id SERIAL PRIMARY KEY,
-		fk_username TEXT REFERENCES User_Info(username),
-		fk_email TEXT REFERENCES User_Info(email)
 	);
 
 	CREATE TABLE Workflow_Creator (
@@ -50,7 +44,7 @@
 	);
 
 	CREATE TABLE Solve (
-		fk_user_id INTEGER REFERENCES Users(user_id),
+		fk_user_id INTEGER REFERENCES User_Info(user_id),
 		fk_workflow_id INTEGER REFERENCES Workflow(workflow_id),
 		score INTEGER,
 		PRIMARY KEY (fk_user_id, fk_workflow_id)

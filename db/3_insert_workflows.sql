@@ -73,7 +73,7 @@ VALUES ('Gitflow', '<p><b>The Gitflow Workflow</b> is a branching strategy that 
 
 
 INSERT INTO Workflow (workflow_name, workflow_description)
-VALUES ('Cactus Workflow', '<p><b>The Cactus Workflow</b> is a branching architecture that guarantees continuous integration rules are maintained while maintaining the usual method of working with Git. Developers routinely rebase their modifications to adhere to the most recent origin/master, where all development takes place. Short-lived local branches are permitted, but whenever something has to be shared, they should be merged with origin/master.</p>
+VALUES ('Cactus', '<p><b>The Cactus Workflow</b> is a branching architecture that guarantees continuous integration rules are maintained while maintaining the usual method of working with Git. Developers routinely rebase their modifications to adhere to the most recent origin/master, where all development takes place. Short-lived local branches are permitted, but whenever something has to be shared, they should be merged with origin/master.</p>
 <p><b>Why should you use the Cactus Workflow?</b></p>
 <ul>
   <li>Maintains the concept of continuous integration</li>

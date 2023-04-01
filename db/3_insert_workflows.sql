@@ -36,38 +36,74 @@ It is based on the use of feature branches, which allow developers to work on ne
     <li>Not suitable for maintaining multiple versions in production.</li>
 </ul>');
 
-
 INSERT INTO Workflow (workflow_name, workflow_description)
-VALUES ('custom', '<p><b>The Custom Workflow</b> is a tailored approach to software development that is tailored to the specific needs and constraints of a project or team.
- It is not based on any specific methodology, but rather a combination of different practices and tools that are chosen to meet the unique requirements of the project.</p>
-<p><b>Why should you learn Custom Workflow?</b></p>
-
+VALUES ('Gitflow', '<p><b>The Gitflow Workflow</b> is a branching strategy that specifies certain roles for various branches and how they should interact. To manage releases, prepare, maintain, and record releases, it makes use of numerous primary branches, long-lived feature branches, and long-lived feature branches.The Gitflow Workflow offers a clear and consistent method for managing and organizing code changes by outlining particular tasks for each branch. </p>
+<p><b>Why should you learn Gitflow Workflow?</b></p>
 <ul>
-  <li>Flexibility to adapt to specific project requirements </li>
-  <li>Can be optimized for efficiency and productivity </li>
-  <li>Allows for experimentation and innovation</li>
+  <li>Appropriate for projects with predetermined release schedules</li>
+  <li>Enables the continuous delivery (best practice recommended by DevOps)</li>
+  <li>Specifies precise branch functions, as well as how and when those branches should engage</li>
 </ul>
 <p><b>Beneficial for:</b></p>
 <ul>
-  <li>Teams that have specific constraints or requirements that cannot be met by a standard workflow</li>
-  <li>Projects that require a high level of customization and flexibility</li>
-  <li>Teams that want to experiment with different practices and tools</li>
+  <li>Developers who work on projects with scheduled release cycles</li>
+  <li>Teams that want to implement continuous delivery and DevOps practices</li>
+  <li>Projects that require a specific structure for managing branches and releases</li>
 </ul>
 <p><b>Usage:</b></p>
 <ul>
-  <li>Determine the specific needs and constraints of the project or team</li>
-  <li>Select and combine different practices and tools that best meet those needs</li>
-  <li>Regularly review and iterate on the workflow to ensure it remains efficient and effective</li>
+  <li>For each new feature or bug repair, create a develop branch and a feature branch</li>
+  <li>When finished and tested, merge feature branches to the develop branch</li>
+  <li>To be ready for production releases, create release branches</li>
+  <li>When ready for production, merge release branches into the main and develop branches</li>
 </ul>
 <p><b>Advantages:</b></p>
 <ul>
-    <li>Flexibility to adapt to specific project requirements </li>
-    <li>Can be optimized for efficiency and productivity </li>
-    <li>Allows for experimentation and innovation</li>
+    <li>Appropriate for projects with predetermined release schedules</li>
+    <li>Offers a structured method for controlling branches and releases</li>
+    <li>Allows for DevOps and continuous delivery</li>
+    <li>Allows for the concurrent creation of features without incompatible upgrades</li>
 </ul>
 <p><b>Disadvantages:</b></p>
 <ul>
-    <li>Requires a lot of planning and customization </li>
-    <li>Not as well-established as other workflows </li>
-    <li>Not easily replicable for other projects or teams</li>
+    <li>To integrate long-lived feature branches, more people must work together</li>
+    <li>Greater likelihood of leaving the stem branch</li>
+    <li>Managing large commits may be difficult</li>
+</ul>');
+
+
+INSERT INTO Workflow (workflow_name, workflow_description)
+VALUES ('Cactus', '<p><b>The Cactus Workflow</b> is a branching architecture that guarantees continuous integration rules are maintained while maintaining the usual method of working with Git. Developers routinely rebase their modifications to adhere to the most recent origin/master, where all development takes place. Short-lived local branches are permitted, but whenever something has to be shared, they should be merged with origin/master.</p>
+<p><b>Why should you use the Cactus Workflow?</b></p>
+<ul>
+  <li>Maintains the concept of continuous integration</li>
+  <li>Reduces merging mistakes and conflicts</li>
+  <li>Relies on a single master branch to streamline development</li>
+</ul>
+<p><b>Beneficial for:</b></p>
+<ul>
+  <li>Developers seeking a straightforward and effective process</li>
+  <li>Teams want to use continuous integration and delivery techniques</li>
+  <li>Projects that demand a systematic method for handling code changes</li>
+</ul>
+<p><b>Usage:</b></p>
+<ul>
+  <li>The master branch is where all development takes place</li>
+  <li>To keep up with the most recent origin/master, developers ought to often reformat their modifications</li>
+  <li>Short-lived local branches works well, but when something has to be shared, they should be merged with origin/master</li>
+  <li>Need to avoid usage of shared remote branches. </li>
+  <li>Use either rebase or cherry-pick instead of standard merges as fast-forward merges are not allowed </li>
+</ul>
+<p><b>Advantages:</b></p>
+<ul>
+  <li>Conforms to the natural approach of working with Git</li>
+  <li>Ensures that the concepts of continuous integration are kept properly</li>
+  <li>Enables quick and frequent releases</li>
+  <li>Provides a clear and straightforward commit history.</li>
+</ul>
+<p><b>Disadvantages:<b></p>
+<ul>
+  <li>It could be difficult to deploy for bigger teams or complicated projects</li>
+  <li>Requires developers to follow certain rules and work together</li>
+  <li>Maintaining numerous versions in production may be challenging</li>
 </ul>');

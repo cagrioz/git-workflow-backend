@@ -15,7 +15,7 @@ const updatetSolvedWorkflow = (user_id, wf_id, score, response) => {
                     response.status(400).json(err);
                     reject(err);
                 }
-                resolve('success');
+                resolve({ message: 'Success' });
             }
         );
     });
@@ -31,7 +31,7 @@ const insertSolvedWorkflow = (user_id, wf_id, score, response) => {
                     response.status(400).json(err);
                     reject(err);
                 }
-                resolve('success');
+                resolve({ message: 'Success' });
             }
         );
     });
@@ -91,11 +91,11 @@ const getScore = (exercises, user_id, wf_id, length, response) => {
                 }
                 let l = res.rows.length;
                 if (l < 1) {
-                    let text = exercises + 'score: 0/' + length;
+                    let text = { exercises, score: '0/' + length };
                     resolve(text);
                 } else {
                     let sc = res.rows[0].score;
-                    let text = exercises + ' score:' + sc + '/' + length;
+                    let text = { exercises, score: sc + '/' + length };
                     resolve(text);
                 }
             }
@@ -145,7 +145,7 @@ const getWorkflowByName = (request, response) => {
             }
             let length = results.rows.length;
             if (length < 1) {
-                response.status(200).json('no workflows found');
+                response.status(400).json({ error: 'No workflows found' });
                 return;
             }
             let wf_id = results.rows[0].workflow_id;
@@ -180,7 +180,7 @@ const saveWorkflowProgress = (request, response) => {
 
     getWorkflowId(wf_name, response).then((wf_id) => {
         if (wf_id == 0) {
-            response.status(200).json('error:no workflow found');
+            response.status(400).json({ error: 'No workflow found' });
             return;
         }
         isScoreExist(user_id, wf_id).then((result) => {

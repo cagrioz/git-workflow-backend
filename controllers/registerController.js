@@ -10,7 +10,7 @@ const checkUsername = (newUser, response) => {
         OR email = ${newUser.email}`,
             (error, results) => {
                 if (error) {
-                    response.status(200).json(error);
+                    response.status(400).json(error);
                     reject(error);
                 }
                 let length = results.rows.length;
@@ -28,7 +28,7 @@ const recordUserInfo = (newUser, response) => {
             ${newUser.password}, ${newUser.firstname}, ${newUser.lastname});`,
             (error) => {
                 if (error) {
-                    response.status(200).json(error);
+                    response.status(400).json(error);
                     reject(error);
                 }
                 resolve(newUser);
@@ -42,7 +42,9 @@ const registerUser = (request, response) => {
     let newUser = new UserInfo(username, email, password, firstname, lastname);
     checkUsername(newUser, response).then((length) => {
         if (length > 0) {
-            response.status(200).json('error:username or email already taken');
+            response
+                .status(400)
+                .json({ error: 'Username or email already taken' });
             return;
         }
         recordUserInfo(newUser, response).then((user) => {

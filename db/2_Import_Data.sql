@@ -1,4 +1,8 @@
 --insert into user_info values ('serguney', 'e@xample.com', '123456789','Gumus', 'Serguney');
+--insert into user_info values ('ibrahim','ibrahim@gmail.com','123456','Sarigoz','Ibrahim');
+--insert info user_info values ('umut', 'umut@gmail.com','123456','Baybece','Umut');
+--insert info user_info values ('cagri', 'cagri@gmail.com','123456','Ozarpaci','Cagri');
+
 
 INSERT INTO exercises (description, answer, feedback, exercise_name)
 VALUES ('In this exercise, you will learn how to use the git commit command to save your changes to a Git repository. 

@@ -1,15 +1,41 @@
 const { Workflow } = require('../models/Workflow.js');
-const { Exercise } = require('../models/Exercise.js');
+const { Exercise, WorkflowExercise } = require('../models/Exercise.js');
 
 const db = require('../db.js');
 
 const SQL = require('sql-template-strings');
 
+//promise to get score
+const getScore = (exercises, user_id, wf_id, length, response) => {
+    return new Promise((resolve, reject) => {
+        db.query(SQL`SELECT score FROM Solve WHERE fk_user_id = ${user_id}
+        AND fk_workflow_id = ${wf_id}`, (err, res) => {
+            if (err) {
+                response.status(200).json(err)
+                reject(err);
+            }
+            let l = res.rows.length;
+            if (l < 1) {
+                let text = exercises + 'score: 0/' + length;
+                resolve(text);
+            }
+            else {
+                let sc = res.rows[0].score;
+                let text = exercises + sc + 'score: /' + length;
+                resolve(text);
+            }
+        })
+    })
+}
+
+
+//workflow exercises
 const getWorkflows = (request, response) => {
     db.query('SELECT * FROM WORKFLOW ORDER BY workflow_id', (err, res) => {
         if (err) {
             response.status(200).json(err.message);
-            return        }
+            return
+        }
 
         // Create an empty list for workflows
         let workflowList = [];
@@ -33,15 +59,38 @@ const getWorkflows = (request, response) => {
 };
 
 const getWorkflowByName = (request, response) => {
-    const wf_name = request.params.id;
-    db.query(SQL`SELECT * FROM workflow_details WHERE workflow_name = ${wf_name}`, (error, results) =>
-    {
-        if (error)
-        {
+    const wf_name = request.params.workflowName;
+    let user_id = request.params.userId;
+    db.query(SQL`SELECT * FROM workflow_details WHERE workflow_name = ${wf_name}`, (error, results) => {
+        if (error) {
             response.status(200).json(error);
             return;
         }
-        response.status(200).json(results.rows);
+        length = results.rows.length;
+        if (length < 1) {
+            response.status(200).json("no workflows found");
+            return;
+        }
+        let wf_id = results.rows[0].workflow_id;
+        //create list of workflow exercise objects
+        let workflowExerciseList = [];
+        for (let i = 0; i < length; i++) {
+            let newWorkflowExercise = new WorkflowExercise(
+                results.rows[i].exercise_id,
+                results.rows[i].description,
+                results.rows[i].answer,
+                results.rows[i].feedback,
+                results.rows[i].workflow_id,
+                results.rows[i].explanation,
+                results.rows[i].order_
+            )
+            workflowExerciseList.push(newWorkflowExercise);
+        }
+        text = JSON.stringify(workflowExerciseList);
+
+        getScore(text,user_id,wf_id,length,response).then((j_text) =>{
+            response.status(200).json(j_text);
+        })
     }
     )
 };

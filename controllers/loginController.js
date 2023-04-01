@@ -13,7 +13,7 @@ const getUserId = (request,response) =>  {
             response.status(200).json("error:invalid username or password");
             return;
         }
-        response.status(200).json(results.rows[0].user_id);
+        response.status(200).json(results.rows[0].user_id + ' ' + results.rows[0].username);
     })
 }
 

@@ -5,13 +5,35 @@ const db = require('../db.js');
 
 const SQL = require('sql-template-strings');
 
-//promise to get score
+//helper promise to get workflow_id
+const getWorkflowId = (wf_name, response) => {
+    return new Promise((resolve, reject) => {
+        db.query(SQL`SELECT workflow_id from workflow where workflow_name = ${wf_name}`, (err,res) =>{
+            if (err)
+            {
+                response.status(400).json(err);
+                reject(err);
+            }
+            let length = res.rows.length;
+            if(length < 1)
+            {
+                resolve(0);
+            }
+            else
+            {
+                resolve(res.rows[0].workflow_id);
+            }
+        })
+    })
+}
+
+//helper promise to get score
 const getScore = (exercises, user_id, wf_id, length, response) => {
     return new Promise((resolve, reject) => {
         db.query(SQL`SELECT score FROM Solve WHERE fk_user_id = ${user_id}
         AND fk_workflow_id = ${wf_id}`, (err, res) => {
             if (err) {
-                response.status(200).json(err)
+                response.status(400).json(err);
                 reject(err);
             }
             let l = res.rows.length;
@@ -33,7 +55,7 @@ const getScore = (exercises, user_id, wf_id, length, response) => {
 const getWorkflows = (request, response) => {
     db.query('SELECT * FROM WORKFLOW ORDER BY workflow_id', (err, res) => {
         if (err) {
-            response.status(200).json(err.message);
+            response.status(400).json(err.message);
             return
         }
 
@@ -58,12 +80,13 @@ const getWorkflows = (request, response) => {
     });
 };
 
+//workflows containing exercises
 const getWorkflowByName = (request, response) => {
     const wf_name = request.params.workflowName;
     let user_id = request.params.userId;
     db.query(SQL`SELECT * FROM workflow_details WHERE workflow_name = ${wf_name}`, (error, results) => {
         if (error) {
-            response.status(200).json(error);
+            response.status(400).json(error);
             return;
         }
         length = results.rows.length;
@@ -95,4 +118,18 @@ const getWorkflowByName = (request, response) => {
     )
 };
 
-module.exports = { getWorkflows, getWorkflowByName };
+//store workflow score for a particular user
+const saveWorkflowProgress = (request,response) => {
+    let wf_name = request.params.workflowName;
+    let user_id = request.params.userId;
+    let sc = request.params.score;
+    getWorkflowId(wf_name,response).then((wf_id)=>{
+        if (wf_id == 0)
+        {
+            response.status(200).json("error:no workflow found");
+            return;
+        }
+    })
+}
+
+module.exports = { getWorkflows, getWorkflowByName, saveWorkflowProgress };

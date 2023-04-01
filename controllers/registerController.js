@@ -18,6 +18,7 @@ const checkUsername = (newUser, response) => {
     })
 }
 //promise to record uset_info
+
 const recordUserInfo = (newUser, response) => {
     return new Promise((resolve, reject) => {
         db.query(SQL`insert into user_info (username, email, password, firstname, lastname)
@@ -32,12 +33,14 @@ const recordUserInfo = (newUser, response) => {
     })
 }
 
+//deneme 
 
 const registerUser = (request, response) => {
     let newUser = new UserInfo(
         request.params.username,
         request.params.email,
         request.params.password,
+        
         request.params.firstname,
         request.params.lastname
     );

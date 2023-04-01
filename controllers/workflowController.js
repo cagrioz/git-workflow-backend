@@ -5,6 +5,26 @@ const db = require('../db.js');
 
 const SQL = require('sql-template-strings');
 
+//helper promise to check whether wokflow score initialized or not
+const isScoreExist = (user_id, wf_id) => {
+    return new Promise((resolve, reject)=> {
+       db.query(SQL`SELECT score FROM Solve WHERE fk_user_id = ${user_id}
+       AND fk_workflow_id = ${wf_id}`, (err,res)=> {
+        if (err)
+        {
+            response.status(400).json(err);
+            reject(err);
+        }
+        let length = res.rows.length;
+        if(length < 1)
+        {
+            resolve(0);
+        }
+        else resolve(1);
+       }) 
+    })
+}
+
 //helper promise to get workflow_id
 const getWorkflowId = (wf_name, response) => {
     return new Promise((resolve, reject) => {
@@ -129,6 +149,10 @@ const saveWorkflowProgress = (request,response) => {
             response.status(200).json("error:no workflow found");
             return;
         }
+        isScoreExist(user_id,wf_id).then((result)=>
+        {
+            
+        })
     })
 }
 

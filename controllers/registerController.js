@@ -35,11 +35,11 @@ const recordUserInfo = (newUser, response) => {
 
 const registerUser = (request, response) => {
     let newUser = new UserInfo(
-        request.params.username,
-        request.params.email,
-        request.params.password,
-        request.params.firstname,
-        request.params.lastname
+        request.body.username,
+        request.body.email,
+        request.body.password,
+        request.body.firstname,
+        request.body.lastname
     );
     checkUsername(newUser, response).then((length) => {
         if (length > 0) {

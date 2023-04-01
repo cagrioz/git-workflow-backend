@@ -11,6 +11,8 @@ const loginRoutes = require('./routes/loginRoutes.js');
 // enable cors
 app.use(cors());
 
+app.use(express.json());
+
 app.get('/', (request, response) => {
     response.json({ info: 'Node.js, Express, and Postgres API' });
 });

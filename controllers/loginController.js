@@ -2,8 +2,10 @@ const db = require('../db.js');
 const SQL = require('sql-template-strings');
 
 const getUserId = (request,response) =>  {
-    db.query(SQL`SELECT * FROM user_info WHERE username = ${request.body.username} 
-    and password = ${request.body.password}`, (error, results) => {
+    const {username,password} = request.body;
+
+    db.query(SQL`SELECT * FROM user_info WHERE username = ${username} 
+    and password = ${password}`, (error, results) => {
         if (error) {
             response.status(200).json(error);
             reject(error);
@@ -13,7 +15,7 @@ const getUserId = (request,response) =>  {
             response.status(200).json("error:invalid username or password");
             return;
         }
-        response.status(200).json(results.rows[0].user_id + ' ' + results.rows[0].username);
+        response.status(200).json("id: " + results.rows[0].user_id + ' username:' + results.rows[0].username);
     })
 }
 

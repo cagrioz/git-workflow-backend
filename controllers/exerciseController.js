@@ -5,12 +5,17 @@ const db = require('../db.js');
 const getExercises = (request, response) => {
     db.query('Select * from public."exercises"', (err, res) => {
         if (err) {
-            throw Error;
+            response.status(200).json("no exercise list found");
+            return;
         }
         //create an empty list for exercises
         let exerciseList = [];
         //get number of exercises
         let length = res.rows.length;
+        if (!length){
+            response.status(200).json("no exercise found");
+            return;
+        }
         for (let i = 0; i < length; i++) {
             //create a new exercise object
             let newExercise = new Exercise(
@@ -22,7 +27,6 @@ const getExercises = (request, response) => {
             );
             exerciseList.push(newExercise);
         }
-
         response.status(200).json(exerciseList);
     });
 };

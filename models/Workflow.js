@@ -1,72 +1,72 @@
 class Workflow {
     //protected variable
-    _workflowId;
-    _workflowName;
-    _workflowDescription;
-    _exerciseList;
+    workflowId;
+    workflowName;
+    workflowDescription;
+    exerciseList;
 
     //constructor
     constructor(workflowId, workflowName, workflowDescription) {
-        this._workflowId = workflowId;
-        this._workflowName = workflowName;
-        this._workflowDescription = workflowDescription;
-        this._exerciseList = [];
+        this.workflowId = workflowId;
+        this.workflowName = workflowName;
+        this.workflowDescription = workflowDescription;
+        this.exerciseList = [];
     }
 
     //getters and setters
     getWorkflowId = () => {
-        return this._workflowId;
+        return this.workflowId;
     };
     workflowName = () => {
-        return this._workflowName;
+        return this.workflowName;
     };
     getWorkflowDescription = () => {
-        return this._workflowDescription;
+        return this.workflowDescription;
     };
     getExerciseList = () => {
-        return this._exerciseList;
+        return this.exerciseList;
     };
     setWorkflowId = (workflowId) => {
-        this._workflowId = workflowId;
+        this.workflowId = workflowId;
     };
     setWorkflowName = (workflowName) => {
-        this._workflowName = workflowName;
+        this.workflowName = workflowName;
     };
     setWorkflowDescription = (description) => {
-        this._workflowDescription = description;
+        this.workflowDescription = description;
     };
     setExerciseList = (exerciseList) => {
-        this._exerciseList = exerciseList;
+        this.exerciseList = exerciseList;
     };
     //methods
     addExercise = (exercise) => {
-        this._exerciseList.push(exercise);
+        this.exerciseList.push(exercise);
     };
 }
 
 class SolvedWorkflow extends Workflow {
-    //private variables
-    #userId;
-    #score;
+    //variables
+    userId;
+    score;
     //constructor
     constructor(workflowId, workflowName, workflowDescription, userId, score) {
         //call parent constructor
         super(workflowId, workflowName, workflowDescription);
-        this.#userId = userId;
-        this.#score = score;
+        this.userId = userId;
+        this.score = score;
     }
     //getters and setters
     getUserId = () => {
-        return this.#userId;
+        return this.userId;
     };
     getScore = () => {
-        return this.#score;
+        return this.score;
     };
     setUserId = (userID) => {
-        this.#userId = userID;
+        this.userId = userID;
     };
     setScore = (score) => {
-        this.#score = score;
+        this.score = score;
     };
 }
 

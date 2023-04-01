@@ -1,65 +1,58 @@
 class User {
     //protected variables
-    _userId;
-    _userName;
-    _email;
+    userId;
+    userName;
+    email;
     //constructor
     constructor(userId, userName, email) {
-        this._userId = userId;
-        this._userName = userName;
-        this._email = email;
+        this.userId = userId;
+        this.userName = userName;
+        this.email = email;
     }
 
     //getters and setters
     getUserId = () => {
-        return this._userId;
+        return this.userId;
     };
     getUserName = () => {
-        return this._userName;
+        return this.userName;
     };
     getEmail = () => {
-        return this._email;
+        return this.email;
     };
     setUserId = (Id) => {
-        this._userId = Id;
+        this.userId = Id;
     };
     setUserName = (userName) => {
-        this._userName = userName;
+        this.userName = userName;
     };
     setEmail = (email) => {
-        this._email = email;
+        this.email = email;
     };
 }
 
 class WorkflowCreator extends User {
-    //private variable
-    #workflowId;
-    #workflowList;
+    //variables
+    workflowId;
+    workflowList;
 
     //constructor
     constructor(userId, userName, email, workflowId) {
         //call parent constructor
         super(userId, userName, email);
-        this.#workflowId = workflowId;
-        this.#workflowList = [];
+        this.workflowList = [];
     }
     //getters and setters
-    getWorkflowId = () => {
-        return this.#workflowId;
-    };
     getWorkflowList = () => {
-        return this.#workflowList;
-    };
-    setWorkflowId = (workflowId) => {
-        this.#workflowId = workflowId;
+        return this.workflowList;
     };
     setWorkflowList = (workflowList) => {
-        this.#workflowList = workflowList;
+        this.workflowList = workflowList;
     };
 
     //methods
     addWorkFLow = (workflow) => {
-        this.#workflowList.push(workflow);
+        this.workflowList.push(workflow);
     };
 }
 

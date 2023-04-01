@@ -34,7 +34,7 @@ const recordUserInfo = (newUser, response) => {
 
 
 const registerUser = (request, response) => {
-    const { username ,email, password,firstname,lastname} = request.body;
+    const { username, email, password, firstname, lastname } = request.body;
     let newUser = new UserInfo(
         username,
         email,

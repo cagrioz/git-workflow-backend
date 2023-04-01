@@ -6,70 +6,63 @@ const db = require('../db.js');
 const SQL = require('sql-template-strings');
 
 
-const updatetSolvedWorkflow = (user_id,wf_id,score,response) => {
+const updatetSolvedWorkflow = (user_id, wf_id, score, response) => {
     return new Promise((resolve, reject) => {
         db.query(SQL`UPDATE Solve SET score = ${score} 
-        WHERE fk_user_id = ${user_id} AND fk_workflow_id = ${wf_id}`, (err,res) =>{
-            if (err)
-            {
+        WHERE fk_user_id = ${user_id} AND fk_workflow_id = ${wf_id}`, (err, res) => {
+            if (err) {
                 response.status(400).json(err);
                 reject(err);
             }
             resolve("success");
         })
     })
-} 
+}
 
 //helper promise to insert solved workflow
-const insertSolvedWorkflow = (user_id,wf_id,score,response) => {
+const insertSolvedWorkflow = (user_id, wf_id, score, response) => {
     return new Promise((resolve, reject) => {
-        db.query(SQL`INSERT INTO Solve VALUES(${user_id},${wf_id},${score})`, (err,res) =>{
-            if (err)
-            {
+        db.query(SQL`INSERT INTO Solve VALUES(${user_id},${wf_id},${score})`, (err, res) => {
+            if (err) {
                 response.status(400).json(err);
                 reject(err);
             }
             resolve("success");
         })
     })
-} 
+}
 
 //helper promise to check whether wokflow score initialized or not
 const isScoreExist = (user_id, wf_id) => {
-    return new Promise((resolve, reject)=> {
-       db.query(SQL`SELECT score FROM Solve WHERE fk_user_id = ${user_id}
-       AND fk_workflow_id = ${wf_id}`, (err,res)=> {
-        if (err)
-        {
-            response.status(400).json(err);
-            reject(err);
-        }
-        let length = res.rows.length;
-        if(length < 1)
-        {
-            resolve(0);
-        }
-        else resolve(1);
-       }) 
+    return new Promise((resolve, reject) => {
+        db.query(SQL`SELECT score FROM Solve WHERE fk_user_id = ${user_id}
+       AND fk_workflow_id = ${wf_id}`, (err, res) => {
+            if (err) {
+                response.status(400).json(err);
+                reject(err);
+            }
+            let length = res.rows.length;
+            if (length < 1) {
+                resolve(0);
+            }
+            else resolve(1);
+        })
     })
 }
 
 //helper promise to get workflow_id
 const getWorkflowId = (wf_name, response) => {
     return new Promise((resolve, reject) => {
-        db.query(SQL`SELECT workflow_id from workflow where workflow_name = ${wf_name}`, (err,res) =>{
-            if (err)
-            {
+        db.query(SQL`SELECT workflow_id from workflow where workflow_name = ${wf_name}`, (err, res) => {
+            if (err) {
                 response.status(400).json(err);
                 reject(err);
             }
             let length = res.rows.length;
-            if(length < 1)
-            {
+            if (length < 1) {
                 resolve(0);
             }
-            else
-            {
+            else {
                 resolve(res.rows[0].workflow_id);
             }
         })
@@ -160,7 +153,7 @@ const getWorkflowByName = (request, response) => {
         }
         text = JSON.stringify(workflowExerciseList);
 
-        getScore(text,user_id,wf_id,length,response).then((j_text) =>{
+        getScore(text, user_id, wf_id, length, response).then((j_text) => {
             response.status(200).json(j_text);
         })
     }
@@ -168,29 +161,24 @@ const getWorkflowByName = (request, response) => {
 };
 
 //store workflow score for a particular user
-const saveWorkflowProgress = (request,response) => {
+const saveWorkflowProgress = (request, response) => {
     let wf_name = request.body.workflowName;
     let user_id = request.body.userId;
     let sc = request.body.score;
 
-    getWorkflowId(wf_name,response).then((wf_id)=>{
-        if (wf_id == 0)
-        {
+    getWorkflowId(wf_name, response).then((wf_id) => {
+        if (wf_id == 0) {
             response.status(200).json("error:no workflow found");
             return;
         }
-        isScoreExist(user_id,wf_id).then((result)=>
-        {
-            if (result == 1)
-            {
-                updatetSolvedWorkflow(user_id,wf_id,sc,response).then((msg)=>{
+        isScoreExist(user_id, wf_id).then((result) => {
+            if (result == 1) {
+                updatetSolvedWorkflow(user_id, wf_id, sc, response).then((msg) => {
                     response.status(200).json(msg);
                 })
             }
-            else
-            {
-                insertSolvedWorkflow(user_id,wf_id,sc,response).then((msg)=>
-                {
+            else {
+                insertSolvedWorkflow(user_id, wf_id, sc, response).then((msg) => {
                     response.status(200).json(msg);
                 })
             }

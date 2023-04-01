@@ -12,7 +12,7 @@ const getExercises = (request, response) => {
         let exerciseList = [];
         //get number of exercises
         let length = res.rows.length;
-        if (!length){
+        if (!length) {
             response.status(200).json("no exercise found");
             return;
         }

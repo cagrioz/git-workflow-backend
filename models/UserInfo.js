@@ -6,7 +6,7 @@ class UserInfo {
     firstname;
     password;
     //contructor
-    constructor(username, email, password,firstname, lastname) {
+    constructor(username, email, password, firstname, lastname) {
         this.username = username;
         this.email = email;
         this.password = password
@@ -48,4 +48,4 @@ class UserInfo {
         this.password = password;
     }
 }
-module.exports = {UserInfo};
+module.exports = { UserInfo };

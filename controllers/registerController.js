@@ -34,12 +34,13 @@ const recordUserInfo = (newUser, response) => {
 
 
 const registerUser = (request, response) => {
+    const { username ,email, password,firstname,lastname} = request.body;
     let newUser = new UserInfo(
-        request.body.username,
-        request.body.email,
-        request.body.password,
-        request.body.firstname,
-        request.body.lastname
+        username,
+        email,
+        password,
+        firstname,
+        lastname
     );
     checkUsername(newUser, response).then((length) => {
         if (length > 0) {

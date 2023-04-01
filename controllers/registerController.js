@@ -49,6 +49,7 @@ const registerUser = (request, response) => {
         }
         recordUserInfo(newUser, response).then((user) => {
             response.status(200).json({
+                message: 'Succesfully registered',
                 username: user.username,
             });
             return;

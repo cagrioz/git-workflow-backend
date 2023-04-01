@@ -9,3 +9,6 @@ values (3, 1, 'the third step',3);
 
 INSERT INTO workflow_exercise (fk_exercise_id, fk_workflow_id, explanation, order_)
 values (1, 2, 'the first step',1);
+
+INSERT INTO workflow_exercise (fk_exercise_id, fk_workflow_id, explanation, order_)
+values (2, 3, 'the first step',1);

@@ -1,6 +1,5 @@
-#!/usr/bin/env python
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
 
-import subprocess
-
-subprocess.check_call(['python', '-m', 'pycodestyle', '--ignore=E501', '.'])
-subprocess.check_call(['python', '-m', 'yapf', '--diff', '--recursive', '.'])
+npm run lint
+npm run prettier:check

@@ -9,5 +9,4 @@ router.get('/course', workflowController.getWorkflowByName);
 
 router.post('', workflowController.saveWorkflowProgress);
 
-
 module.exports = router;

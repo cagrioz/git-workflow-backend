@@ -9,7 +9,7 @@ class UserInfo {
     constructor(username, email, password, firstname, lastname) {
         this.username = username;
         this.email = email;
-        this.password = password
+        this.password = password;
         this.firstname = firstname;
         this.lastname = lastname;
     }
@@ -31,7 +31,7 @@ class UserInfo {
     };
     getPassword = () => {
         return this.password;
-    }
+    };
     setUserName = (username) => {
         this.username = username;
     };
@@ -46,6 +46,6 @@ class UserInfo {
     };
     setPassword = (password) => {
         this.password = password;
-    }
+    };
 }
 module.exports = { UserInfo };

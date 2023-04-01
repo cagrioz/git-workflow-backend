@@ -1,5 +1,4 @@
 const express = require('express');
-const bodyParser = require('body-parser');
 const app = express();
 const port = 8000;
 
@@ -11,11 +10,9 @@ const registerRoutes = require('./routes/registerRoutes.js');
 const loginRoutes = require('./routes/loginRoutes.js');
 
 app.use(express.json());
-app.use(bodyParser.json());
+
 // enable cors
 app.use(cors());
-
-
 
 app.get('/', (request, response) => {
     response.json({ info: 'Node.js, Express, and Postgres API' });

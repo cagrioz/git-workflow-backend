@@ -5,7 +5,7 @@ const db = require('../db.js');
 const getExercises = (request, response) => {
     db.query('Select * from public."exercises"', (err, res) => {
         if (err) {
-            response.status(200).json("no exercise list found");
+            response.status(200).json('no exercise list found');
             return;
         }
         //create an empty list for exercises
@@ -13,7 +13,7 @@ const getExercises = (request, response) => {
         //get number of exercises
         let length = res.rows.length;
         if (!length) {
-            response.status(200).json("no exercise found");
+            response.status(200).json('no exercise found');
             return;
         }
         for (let i = 0; i < length; i++) {

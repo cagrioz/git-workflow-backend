@@ -33,6 +33,7 @@ const insertSolvedWorkflow = (user_id,wf_id,score,response) => {
         })
     })
 } 
+
 //helper promise to check whether wokflow score initialized or not
 const isScoreExist = (user_id, wf_id) => {
     return new Promise((resolve, reject)=> {
@@ -130,8 +131,8 @@ const getWorkflows = (request, response) => {
 
 //workflows containing exercises
 const getWorkflowByName = (request, response) => {
-    const wf_name = request.params.workflowName;
-    let user_id = request.params.userId;
+    const wf_name = request.query.workflowName;
+    let user_id = request.query.userId;
     db.query(SQL`SELECT * FROM workflow_details WHERE workflow_name = ${wf_name}`, (error, results) => {
         if (error) {
             response.status(400).json(error);
@@ -168,9 +169,10 @@ const getWorkflowByName = (request, response) => {
 
 //store workflow score for a particular user
 const saveWorkflowProgress = (request,response) => {
-    let wf_name = request.params.workflowName;
-    let user_id = request.params.userId;
-    let sc = request.params.score;
+    let wf_name = request.body.workflowName;
+    let user_id = request.body.userId;
+    let sc = request.body.score;
+
     getWorkflowId(wf_name,response).then((wf_id)=>{
         if (wf_id == 0)
         {

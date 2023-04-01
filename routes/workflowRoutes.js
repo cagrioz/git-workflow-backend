@@ -5,9 +5,9 @@ const router = express.Router();
 
 router.get('/', workflowController.getWorkflows);
 
-router.get('/:workflowName/:userId', workflowController.getWorkflowByName);
+router.get('/course', workflowController.getWorkflowByName);
 
-router.get('/:workflowName/:userId/:score', workflowController.saveWorkflowProgress);
+router.post('', workflowController.saveWorkflowProgress);
 
 
 module.exports = router;

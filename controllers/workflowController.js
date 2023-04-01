@@ -5,6 +5,34 @@ const db = require('../db.js');
 
 const SQL = require('sql-template-strings');
 
+
+const updatetSolvedWorkflow = (user_id,wf_id,score,response) => {
+    return new Promise((resolve, reject) => {
+        db.query(SQL`UPDATE Solve SET score = ${score} 
+        WHERE fk_user_id = ${user_id} AND fk_workflow_id = ${wf_id}`, (err,res) =>{
+            if (err)
+            {
+                response.status(400).json(err);
+                reject(err);
+            }
+            resolve("success");
+        })
+    })
+} 
+
+//helper promise to insert solved workflow
+const insertSolvedWorkflow = (user_id,wf_id,score,response) => {
+    return new Promise((resolve, reject) => {
+        db.query(SQL`INSERT INTO Solve VALUES(${user_id},${wf_id},${score})`, (err,res) =>{
+            if (err)
+            {
+                response.status(400).json(err);
+                reject(err);
+            }
+            resolve("success");
+        })
+    })
+} 
 //helper promise to check whether wokflow score initialized or not
 const isScoreExist = (user_id, wf_id) => {
     return new Promise((resolve, reject)=> {
@@ -63,7 +91,7 @@ const getScore = (exercises, user_id, wf_id, length, response) => {
             }
             else {
                 let sc = res.rows[0].score;
-                let text = exercises + sc + 'score: /' + length;
+                let text = exercises + ' score:' + sc + '/' + length;
                 resolve(text);
             }
         })
@@ -151,7 +179,19 @@ const saveWorkflowProgress = (request,response) => {
         }
         isScoreExist(user_id,wf_id).then((result)=>
         {
-            
+            if (result == 1)
+            {
+                updatetSolvedWorkflow(user_id,wf_id,sc,response).then((msg)=>{
+                    response.status(200).json(msg);
+                })
+            }
+            else
+            {
+                insertSolvedWorkflow(user_id,wf_id,sc,response).then((msg)=>
+                {
+                    response.status(200).json(msg);
+                })
+            }
         })
     })
 }

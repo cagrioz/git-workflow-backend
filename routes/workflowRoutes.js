@@ -7,4 +7,7 @@ router.get('/', workflowController.getWorkflows);
 
 router.get('/:workflowName/:userId', workflowController.getWorkflowByName);
 
+router.get('/:workflowName/:userId/:score', workflowController.saveWorkflowProgress);
+
+
 module.exports = router;

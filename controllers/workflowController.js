@@ -91,11 +91,23 @@ const getScore = (exercises, user_id, wf_id, length, response) => {
                 }
                 let l = res.rows.length;
                 if (l < 1) {
-                    let text = { exercises, score: '0/' + length };
+                    let text = {
+                        exercises,
+                        score: {
+                            completed: 0,
+                            total: length,
+                        },
+                    };
                     resolve(text);
                 } else {
                     let sc = res.rows[0].score;
-                    let text = { exercises, score: sc + '/' + length };
+                    let text = {
+                        exercises,
+                        score: {
+                            completed: sc,
+                            total: length,
+                        },
+                    };
                     resolve(text);
                 }
             }

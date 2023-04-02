@@ -79,7 +79,7 @@ const getWorkflowId = (wf_name, response) => {
 };
 
 //helper promise to get score
-/*const getScore = (exercises, user_id, wf_id, length, response) => {
+const getScore = (exercises, user_id, wf_id, length, response) => {
     return new Promise((resolve, reject) => {
         db.query(
             SQL`SELECT score FROM Solve WHERE fk_user_id = ${user_id}
@@ -101,7 +101,7 @@ const getWorkflowId = (wf_name, response) => {
             }
         );
     });
-};*/
+};
 
 //workflow exercises
 const getWorkflows = (request, response) => {
@@ -135,6 +135,7 @@ const getWorkflows = (request, response) => {
 //workflows containing exercises
 const getWorkflowByName = (request, response) => {
     const wf_name = request.query.workflowName;
+    let user_id = request.query.userId;
     db.query(
         SQL`SELECT * FROM workflow_details WHERE workflow_name = ${wf_name}`,
         (error, results) => {
@@ -147,6 +148,7 @@ const getWorkflowByName = (request, response) => {
                 response.status(400).json({ error: 'No workflows found' });
                 return;
             }
+            let wf_id = results.rows[0].workflow_id;
             //create list of workflow exercise objects
             let workflowExerciseList = [];
             for (let i = 0; i < length; i++) {
@@ -161,14 +163,13 @@ const getWorkflowByName = (request, response) => {
                 );
                 workflowExerciseList.push(newWorkflowExercise);
             }
-            response.status(200).json({
+            let text = {
                 exercises: workflowExerciseList,
-            });
+            };
 
-            /*
             getScore(text, user_id, wf_id, length, response).then((j_text) => {
                 response.status(200).json(j_text);
-            });*/
+            });
         }
     );
 };

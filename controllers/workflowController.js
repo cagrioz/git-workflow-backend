@@ -163,11 +163,14 @@ const getWorkflowByName = (request, response) => {
                 );
                 workflowExerciseList.push(newWorkflowExercise);
             }
-            let text = {
-                exercises: workflowExerciseList,
-            };
 
-            getScore(text, user_id, wf_id, length, response).then((j_text) => {
+            getScore(
+                workflowExerciseList,
+                user_id,
+                wf_id,
+                length,
+                response
+            ).then((j_text) => {
                 response.status(200).json(j_text);
             });
         }

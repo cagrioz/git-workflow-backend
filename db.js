@@ -1,3 +1,4 @@
+//import the library
 const { Pool } = require('pg');
 
 //define connection string

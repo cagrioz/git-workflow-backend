@@ -1,5 +1,5 @@
 class User {
-    //protected variables
+    //variables
     userId;
     userName;
     email;

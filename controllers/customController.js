@@ -1,3 +1,4 @@
+//import libraries
 const db = require('../db.js');
 const SQL = require('sql-template-strings');
 
@@ -17,6 +18,7 @@ const getWorkflowId = (wf_name, response) => {
     });
 };
 
+//function to create workflow
 const createWorkflow = (request, response) => {
     //get the parameters from the request
     let wf_name = request.body.workflowName;
@@ -49,6 +51,7 @@ const createWorkflow = (request, response) => {
                             response.status(400).json(err);
                             return;
                         }
+                        //insert exercises to workflow_exercise table one by one
                         for (let i = 0; i < length; i++) {
                             db.query(
                                 SQL`INSERT INTO workflow_exercise VALUES (${
@@ -62,6 +65,7 @@ const createWorkflow = (request, response) => {
                                 }
                             );
                         }
+                        //send success message if custom workflow added successfuly
                         response.status(200).json({ msg: 'successful' });
                     }
                 );
@@ -70,4 +74,5 @@ const createWorkflow = (request, response) => {
     );
 };
 
+//export the function
 module.exports = { createWorkflow };

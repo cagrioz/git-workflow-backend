@@ -1,5 +1,5 @@
 class Workflow {
-    //protected variable
+    //variables
     workflowId;
     workflowName;
     workflowDescription;

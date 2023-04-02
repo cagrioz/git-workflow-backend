@@ -30,9 +30,9 @@
 	);
 
 	CREATE TABLE Workflow_Creator (
-		fk_exercise_id INTEGER REFERENCES Exercises(exercise_id),
+		fk_user_id INTEGER REFERENCES Exercises(exercise_id),
 		fk_workflow_id INTEGER REFERENCES Workflow(workflow_id),
-		PRIMARY KEY (fk_exercise_id, fk_workflow_id)
+		PRIMARY KEY (fk_user_id, fk_workflow_id)
 	);
 
 	CREATE TABLE Workflow_Exercise (

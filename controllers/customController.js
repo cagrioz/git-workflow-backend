@@ -52,7 +52,6 @@ const createWorkflow = (request, response) => {
             }
             for(let i=0; i<length; i++)
             {
-                let explanation 
                 db.query(SQL`INSERT INTO workflow_exercise VALUES (${keys[i]}, ${wf_id}, ${exercises[keys[i]]}, ${i+1})`,
                 (err,res)=>{
                     if(err)

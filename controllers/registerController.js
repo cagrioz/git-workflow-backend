@@ -44,10 +44,9 @@ const recordUserInfo = (newUser, response) => {
 
 //function to register new user
 const registerUser = (request, response) => {
-    
     //get the parameters from the request
     const { username, email, password, firstname, lastname } = request.body;
-    
+
     //create new user object
     let newUser = new UserInfo(username, email, password, firstname, lastname);
 

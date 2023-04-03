@@ -106,7 +106,7 @@ const getScore = (exercises, user_id, wf_id, length, response) => {
                         },
                     };
                     resolve(text);
-                //return 0/total
+                    //return 0/total
                 } else {
                     let sc = res.rows[0].score;
                     let text = {
@@ -174,7 +174,7 @@ const getWorkflowByName = (request, response) => {
             }
             //set the workflow id
             let wf_id = results.rows[0].workflow_id;
-            
+
             //create list of workflow exercise objects
             let workflowExerciseList = [];
 
@@ -192,7 +192,7 @@ const getWorkflowByName = (request, response) => {
                 //add an exercise into the list of workflow objects
                 workflowExerciseList.push(newWorkflowExercise);
             }
-             //get user score of the workflow and concatenate exercise list
+            //get user score of the workflow and concatenate exercise list
             getScore(
                 workflowExerciseList,
                 user_id,
@@ -222,7 +222,7 @@ const saveWorkflowProgress = (request, response) => {
             return;
         }
 
-        //check wether the user already has a score for the particular workflow course 
+        //check wether the user already has a score for the particular workflow course
         isScoreExist(user_id, wf_id).then((result) => {
             if (result == 1) {
                 //update the score if it already exists

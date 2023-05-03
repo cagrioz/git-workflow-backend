@@ -13,7 +13,7 @@ const getUserId = (request, response) => {
     //check if the entered user info is valid
     db.query(
         SQL`SELECT * FROM user_info WHERE username = ${username} 
-    and password = ${password}`,
+    and password = crypt(${password},password)`,
         (error, results) => {
             if (error) {
                 response.status(401).json({ error: error.message });

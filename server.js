@@ -1,8 +1,11 @@
 //define constants
+const cookieParser = require('cookie-parser');
+const dotenv = require('dotenv');
+
 const express = require('express');
 const app = express();
 const port = 8000;
-
+const corsOptions = { credentials: true, origin: process.env.URL || '*' };
 const cors = require('cors');
 
 //define the routes
@@ -13,9 +16,10 @@ const loginRoutes = require('./routes/loginRoutes.js');
 const customRoutes = require('./routes/customRoutes.js');
 
 app.use(express.json());
-
+dotenv.config();
 // enable cors
-app.use(cors());
+app.use(cors(corsOptions));
+app.use(cookieParser());
 
 app.get('/', (request, response) => {
     response.json({ info: 'Node.js, Express, and Postgres API' });

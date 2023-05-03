@@ -6,4 +6,5 @@
 -   execute "npm init" in app directory on VS Code terminal
 -   install Express in the app diractory with following command on VS Code terminal "npm install express"
 -   install sql-template-string with following command "npm i sql-template-strings"
+-   install jsonwebtoken with following command "npm i jsonwebtoken"
 -   run the server.js and the program will be ready on the port 8000

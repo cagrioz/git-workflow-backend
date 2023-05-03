@@ -29,7 +29,7 @@ const recordUserInfo = (newUser, response) => {
         db.query(
             SQL`insert into user_info (username, email, password, firstname, lastname)
         values (${newUser.username}, ${newUser.email}, 
-            ${newUser.password}, ${newUser.firstname}, ${newUser.lastname});`,
+            crypt(${newUser.password},gen_salt('md5')), ${newUser.firstname}, ${newUser.lastname});`,
             (error) => {
                 if (error) {
                     response.status(400).json(error);

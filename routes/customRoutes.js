@@ -5,6 +5,6 @@ const { authenticateToken } = require('../middleware/authorization.js');
 
 const router = express.Router();
 //route the request to the corresponding function
-router.post('', authenticateToken, customController.createWorkflow);
+router.post('/', authenticateToken, customController.createWorkflow);
 
 module.exports = router;

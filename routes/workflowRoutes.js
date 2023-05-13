@@ -8,6 +8,6 @@ const router = express.Router();
 //route the requests to the corresponding functions
 router.get('/', authenticateToken, workflowController.getWorkflows);
 router.get('/course', authenticateToken, workflowController.getWorkflowByName);
-router.post('', authenticateToken, workflowController.saveWorkflowProgress);
+router.post('/', authenticateToken, workflowController.saveWorkflowProgress);
 
 module.exports = router;

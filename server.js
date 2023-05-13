@@ -17,6 +17,7 @@ app.use(express.json());
 // enable cors
 app.use(cors());
 
+// localhost:8000/
 app.get('/', (request, response) => {
     response.json({ info: 'Node.js, Express, and Postgres API' });
 });

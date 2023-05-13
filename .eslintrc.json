@@ -15,5 +15,8 @@
             { "ignores": ["modules"] }
         ]
     },
-    "ignorePatterns": ["models/"]
+    "ignorePatterns": ["models/"],
+    "env": {
+        "mocha": true
+    }
 }

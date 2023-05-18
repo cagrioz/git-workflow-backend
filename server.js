@@ -21,6 +21,7 @@ dotenv.config();
 app.use(cors(corsOptions));
 app.use(cookieParser());
 
+// localhost:8000/
 app.get('/', (request, response) => {
     response.json({ info: 'Node.js, Express, and Postgres API' });
 });

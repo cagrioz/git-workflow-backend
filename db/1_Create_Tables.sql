@@ -6,7 +6,7 @@
 	DROP TABLE IF EXISTS Workflow;
 	DROP TABLE IF EXISTS Exercises;
 	DROP USER IF EXISTS GitWorkflowTeacherApp;
-
+	CREATE EXTENSION pgcrypto;
 	CREATE TABLE Exercises (
 		exercise_id SERIAL PRIMARY KEY,
 		description TEXT,

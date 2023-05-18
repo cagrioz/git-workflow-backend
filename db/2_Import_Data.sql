@@ -1,7 +1,7 @@
-insert into user_info (username, email, password, lastname, firstname) values ('serguney', 'e@xample.com', '123456789','Gumus', 'Serguney');
-insert into user_info (username, email, password, lastname, firstname) values ('ibrahim','ibrahim@gmail.com','123456','Sarigoz','Ibrahim');
-insert into user_info (username, email, password, lastname, firstname) values ('umut', 'umut@gmail.com','123456','Baybece','Umut');
-insert into user_info (username, email, password, lastname, firstname) values ('cagri', 'cagri@gmail.com','123456','Ozarpaci','Cagri');
+insert into user_info (username, email, password, lastname, firstname) values ('serguney', 'e@xample.com', crypt('123456789',gen_salt('md5')),'Gumus', 'Serguney');
+insert into user_info (username, email, password, lastname, firstname) values ('ibrahim','ibrahim@gmail.com',crypt('987654321',gen_salt('md5')),'Sarigoz','Ibrahim');
+insert into user_info (username, email, password, lastname, firstname) values ('umut', 'umut@gmail.com',crypt('123456',gen_salt('md5')),'Baybece','Umut');
+insert into user_info (username, email, password, lastname, firstname) values ('cagri', 'cagri@gmail.com',crypt('123456789',gen_salt('md5')),'Ozarpaci','Cagri');
 
 
 INSERT INTO exercises (description, answer, feedback, exercise_name)

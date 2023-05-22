@@ -11,7 +11,7 @@ const checkUsername = (newUser, response) => {
         OR email = ${newUser.email}`,
             (error, results) => {
                 if (error) {
-                    response.status(400).json(error);
+                    response.status(400).json({error:'username does not exist'});
                     reject(error);
                 }
                 //return number of rows of query result
@@ -32,7 +32,7 @@ const recordUserInfo = (newUser, response) => {
             crypt(${newUser.password},gen_salt('md5')), ${newUser.firstname}, ${newUser.lastname});`,
             (error) => {
                 if (error) {
-                    response.status(400).json(error);
+                    response.status(400).json({error:'user_id must be unique'});
                     reject(error);
                 }
                 //return user details

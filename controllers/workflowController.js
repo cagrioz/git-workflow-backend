@@ -14,7 +14,7 @@ const updatetSolvedWorkflow = (user_id, wf_id, score, response) => {
         WHERE fk_user_id = ${user_id} AND fk_workflow_id = ${wf_id}`,
             (err) => {
                 if (err) {
-                    response.status(400).json(err);
+                    response.status(400).json({error:'invalid user_id or workflow_id'});
                     reject(err);
                 }
                 //return success msg
@@ -31,7 +31,7 @@ const insertSolvedWorkflow = (user_id, wf_id, score, response) => {
             SQL`INSERT INTO Solve VALUES(${user_id},${wf_id},${score})`,
             (err) => {
                 if (err) {
-                    response.status(400).json(err);
+                    response.status(400).json({error:'invalid user_id or workflow_id'});
                     reject(err);
                 }
                 //return success msg
@@ -49,7 +49,7 @@ const isScoreExist = (user_id, wf_id, response) => {
        AND fk_workflow_id = ${wf_id}`,
             (err, res) => {
                 if (err) {
-                    response.status(400).json(err);
+                    response.status(400).json({error:'invalid user_id or workflow_id'});
                     reject(err);
                 }
                 let length = res.rows.length;
@@ -69,7 +69,7 @@ const getWorkflowId = (wf_name, response) => {
             SQL`SELECT workflow_id from workflow where workflow_name = ${wf_name}`,
             (err, res) => {
                 if (err) {
-                    response.status(400).json(err);
+                    response.status(400).json({error:'workflow does not exist'});
                     reject(err);
                 }
                 let length = res.rows.length;
@@ -92,7 +92,7 @@ const getScore = (exercises, user_id, wf_id, length, response) => {
         AND fk_workflow_id = ${wf_id}`,
             (err, res) => {
                 if (err) {
-                    response.status(400).json(err);
+                    response.status(400).json({error:'user or workflow does not exist'});
                     reject(err);
                 }
                 let l = res.rows.length;
@@ -163,7 +163,7 @@ const getWorkflowByName = (request, response) => {
         SQL`SELECT * FROM workflow_details WHERE workflow_name = ${wf_name}`,
         (error, results) => {
             if (error) {
-                response.status(400).json(error);
+                response.status(400).json({error:'workflow does not exist'});
                 return;
             }
             let length = results.rows.length;

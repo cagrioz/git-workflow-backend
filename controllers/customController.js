@@ -55,7 +55,7 @@ const createWorkflow = (request, response) => {
     VALUES (${wf_name}, ${description})`,
         (err) => {
             if (err) {
-                response.status(400).json(err);
+                response.status(400).json({error:'workflow id must be unique'});
                 return;
             }
             //get workflow id from the db
@@ -65,7 +65,7 @@ const createWorkflow = (request, response) => {
                     SQL`INSERT INTO workflow_creator VALUES (${user_id}, ${wf_id})`,
                     (err) => {
                         if (err) {
-                            response.status(400).json(err);
+                            response.status(400).json({error: 'a user cannot create workflow with duplicate workflow_id'});
                             return;
                         }
                         //insert exercises to workflow_exercise table one by one
@@ -76,7 +76,7 @@ const createWorkflow = (request, response) => {
                                 }, ${wf_id}, ${exercises[keys[i]]}, ${i + 1})`,
                                 (err) => {
                                     if (err) {
-                                        response.status(400).json(err);
+                                        response.status(400).json({error:'a workflow cannot contain duplicate exercises'});
                                         return;
                                     }
                                 }

@@ -28,23 +28,6 @@ const createWorkflow = (request, response) => {
     let keys = Object.keys(exercises);
     let length = keys.length;
 
-    // TODO:
-    /*
-        RQUEST BODY FORMAT:
-        {
-            "workflowName": "test",
-            "userId": 1,
-            "workflowDescription": "test",
-            "exercises": [
-                {
-                "exerciseId": 1,
-                "workflowId": 1,
-                "explanation": "test",
-                }
-            ]
-        }
-    */
-
     //check if exercise ids entered
     if (length < 1) {
         response.status(400).json({ error: 'no exercise selected' });

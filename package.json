@@ -24,6 +24,7 @@
     },
     "homepage": "https://github.com/cagrioz/git-workflow-backend#readme",
     "dependencies": {
+        "chai-http": "^4.3.0",
         "cookie-parser": "^1.4.6",
         "cors": "^2.8.5",
         "dotenv": "^16.0.3",
@@ -32,6 +33,7 @@
         "nodemon": "^2.0.20",
         "pg": "^8.8.0",
         "pre-commit": "^1.2.2",
+        "sinon": "^15.1.0",
         "sql-template-strings": "^2.2.2",
         "sql-template-tag": "^5.0.3"
     },

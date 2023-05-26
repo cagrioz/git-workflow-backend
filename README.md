@@ -9,5 +9,7 @@
 -   install jsonwebtoken with following command "npm i jsonwebtoken"
 -   install cookie-parser with following command "npm i cookie-parser"
 -   install dotenv with following command "npm i dotenv"
+-   install sinon with following command "npm install sinon"
+-   install chai-http with following command "npm install chai-http"
 
 -   run the server.js and the program will be ready on the port 8000

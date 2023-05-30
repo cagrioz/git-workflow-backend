@@ -5,7 +5,7 @@ const dotenv = require('dotenv');
 const express = require('express');
 const app = express();
 const port = 8000;
-const corsOptions = { credentials: true, origin: process.env.URL || '*' };
+//const corsOptions = { credentials: true, origin: 'http://localhost:3000/' };
 const cors = require('cors');
 
 //define the routes
@@ -17,8 +17,15 @@ const customRoutes = require('./routes/customRoutes.js');
 
 app.use(express.json());
 dotenv.config();
+
 // enable cors
-app.use(cors(corsOptions));
+app.use(
+    cors({
+        origin: 'https://github-workflow-inqfm2o5g-devcagri-gmailcom.vercel.app/',
+        credentials: true,
+    })
+);
+
 app.use(cookieParser());
 
 // localhost:8000/

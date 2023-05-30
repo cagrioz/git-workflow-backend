@@ -21,7 +21,7 @@ dotenv.config();
 // enable cors
 app.use(
     cors({
-        origin: 'https://github-workflow-inqfm2o5g-devcagri-gmailcom.vercel.app/',
+        origin: 'https://github-workflow-sand.vercel.app/',
         credentials: true,
     })
 );

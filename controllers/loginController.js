@@ -25,17 +25,10 @@ const getUserId = (request, response) => {
                     .json({ error: 'invalid username or password' });
                 return;
             }
-
-            const tokens = jwtTokens(username);
-            response.cookie('refresh_token', tokens.refreshToken, {
-                httpOnly: true,
-            });
-
             //send user details if the login is successful
             response.status(200).json({
                 id: results.rows[0].user_id,
                 username: results.rows[0].username,
-                accessToken: tokens.accessToken,
             });
         }
     );

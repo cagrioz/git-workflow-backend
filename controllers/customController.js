@@ -13,6 +13,7 @@ const getWorkflowId = (wf_name, response) => {
                     reject(err);
                 }
                 resolve(res.rows[0].workflow_id);
+                //resolve(1);
             }
         );
     });
@@ -75,4 +76,4 @@ const createWorkflow = (request, response) => {
 };
 
 //export the function
-module.exports = { createWorkflow };
+module.exports = { createWorkflow, getWorkflowId };

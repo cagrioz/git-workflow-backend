@@ -246,4 +246,5 @@ const saveWorkflowProgress = (request, response) => {
 };
 
 //export the functions
-module.exports = { getWorkflows, getWorkflowByName, saveWorkflowProgress };
+module.exports = { getWorkflows, getWorkflowByName, saveWorkflowProgress, 
+    updatetSolvedWorkflow, insertSolvedWorkflow, isScoreExist, getWorkflowId };

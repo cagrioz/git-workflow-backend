@@ -72,4 +72,4 @@ const registerUser = (request, response) => {
 };
 
 //export the function
-module.exports = { registerUser };
+module.exports = { registerUser, checkUsername, recordUserInfo };

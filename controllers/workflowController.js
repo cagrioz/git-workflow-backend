@@ -123,7 +123,7 @@ const getScore = (exercises, user_id, wf_id, length, response) => {
     });
 };
 
-//fonction to get workflow details
+//function to get workflow details
 const getWorkflows = (request, response) => {
     db.query('SELECT * FROM WORKFLOW ORDER BY workflow_id', (err, res) => {
         if (err) {

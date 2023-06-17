@@ -182,7 +182,7 @@ const getWorkflowByName = (request, response) => {
             for (let i = 0; i < length; i++) {
                 let newWorkflowExercise = new WorkflowExercise(
                     results.rows[i].exercise_id,
-                    results.rows[i].explanation,
+                    results.rows[i].exercise_name,
                     results.rows[i].answer,
                     results.rows[i].feedback,
                     results.rows[i].workflow_id,

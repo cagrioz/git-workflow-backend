@@ -1,6 +1,8 @@
 /* eslint-disable node/no-unpublished-require */
 const expect = require('chai').expect;
 const { getUserId } = require('../controllers/loginController.js');
+
+
 describe('integration test for login controller', function () {
     this.timeout(5000); // Increase timeout value to 5000ms or more if need
     it('should login the website', async function () {

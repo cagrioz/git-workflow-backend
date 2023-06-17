@@ -182,11 +182,11 @@ const getWorkflowByName = (request, response) => {
             for (let i = 0; i < length; i++) {
                 let newWorkflowExercise = new WorkflowExercise(
                     results.rows[i].exercise_id,
-                    results.rows[i].description,
+                    results.rows[i].explanation,
                     results.rows[i].answer,
                     results.rows[i].feedback,
                     results.rows[i].workflow_id,
-                    results.rows[i].explanation,
+                    results.rows[i].description,
                     results.rows[i].order_
                 );
                 //add an exercise into the list of workflow objects
@@ -244,6 +244,7 @@ const saveWorkflowProgress = (request, response) => {
         });
     });
 };
+
 
 //export the functions
 module.exports = {

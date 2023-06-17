@@ -85,7 +85,7 @@ const getWorkflowId = (wf_name, response) => {
 };
 
 //helper promise to get score
-const getScore = (exercises, user_id, wf_id, length, response) => {
+const getScore = (workflow_description,exercises, user_id, wf_id, length, response) => {
     return new Promise((resolve, reject) => {
         db.query(
             SQL`SELECT score FROM Solve WHERE fk_user_id = ${user_id}
@@ -99,6 +99,7 @@ const getScore = (exercises, user_id, wf_id, length, response) => {
                 //if the score exists return score/total
                 if (l < 1) {
                     let text = {
+                        workflow_description: workflow_description, // Pass workflow_description here
                         exercises,
                         score: {
                             completed: 0,
@@ -110,6 +111,7 @@ const getScore = (exercises, user_id, wf_id, length, response) => {
                 } else {
                     let sc = res.rows[0].score;
                     let text = {
+                        workflow_description: workflow_description, // Pass workflow_description here
                         exercises,
                         score: {
                             completed: sc,
@@ -174,6 +176,8 @@ const getWorkflowByName = (request, response) => {
             }
             //set the workflow id
             let wf_id = results.rows[0].workflow_id;
+            let workflow_description = results.rows[0].workflow_description;
+            
 
             //create list of workflow exercise objects
             let workflowExerciseList = [];
@@ -193,7 +197,7 @@ const getWorkflowByName = (request, response) => {
                 workflowExerciseList.push(newWorkflowExercise);
             }
             //get user score of the workflow and concatenate exercise list
-            getScore(
+            getScore(workflow_description,
                 workflowExerciseList,
                 user_id,
                 wf_id,

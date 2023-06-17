@@ -183,10 +183,10 @@ const getWorkflowByName = (request, response) => {
                 let newWorkflowExercise = new WorkflowExercise(
                     results.rows[i].exercise_id,
                     results.rows[i].exercise_name,
-                    results.rows[i].answer,
+                    "",
                     results.rows[i].feedback,
                     results.rows[i].workflow_id,
-                    results.rows[i].description,
+                    results.rows[i].explanation,
                     results.rows[i].order_
                 );
                 //add an exercise into the list of workflow objects

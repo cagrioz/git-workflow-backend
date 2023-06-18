@@ -19,12 +19,20 @@ app.use(express.json());
 dotenv.config();
 
 // enable cors
+
 app.use(
     cors({
-        origin: 'https://github-workflow-sand.vercel.app',
-        credentials: true,
+      origin: 'http://localhost:3000',
+      credentials: true,
     })
-);
+  );
+
+//app.use(
+//    cors({
+//        origin: ['http://localhost:3000', 'https://github-workflow-sand.vercel.app'],
+//        credentials: true,
+//    })
+//);
 
 app.use(cookieParser());
 

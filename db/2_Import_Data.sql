@@ -40,6 +40,30 @@ INSERT INTO exercises (description, answer, feedback, exercise_name)
 VALUES ('In this exercise, you will learn how to use Git commands to pull changes from the remote master branch, commit your changes with a message, and push the changes back to the remote master branch. To begin, use the command `git pull` to fetch and merge the latest changes from the remote ‘master’ branch into your local repository. This ensures that you have the most up-to-date codebase to  work with and resolves any conflicts that may arise. Next, commit your changes with a descriptive message using the `git commit -m` command with a meaningful message that describes the changes you made. This command records your changes in a commit on your local branch. Finally, push your local commits to the remote master branch using `git push`. This command uploads your local changes to the remote repository, making them accessible to others working on the project.', '', '', 'Pull, Commit, and Push Exercise');
 
 
-
 INSERT INTO exercises (description, answer, feedback, exercise_name)
 VALUES ('In this exercise, you will learn how to use Git commands to update your local repository, stage and commit changes, push the commits to a remote repository, and create a new tag. To begin, execute the command `git pull` to fetch and merge the latest changes from the remote `master` branch into your local repository. This ensures that your local repository is up to date with the latest codebase. Next, use the command `git add .` to stage all the changes in the current directory. This command prepares the changes for the upcoming commit. Commit your changes with a descriptive message which helps describe the changes you made in the commit by running `git commit -m `. To push your local commits to the remote repository, use `git push`. This command uploads your local commits to the remote repository, making them available to others working on the project. Finally, create a new tag called `v1.0.0` by using `git tag`. This command adds a tag to the current commit, marking it as a significant milestone or release point in your project.', '', '', 'Git Update, Stage, Commit, Push, and Tag Exercise');
+
+
+INSERT INTO exercises (description, answer, feedback, exercise_name)
+VALUES ('In this exercise, you will learn how to commit changes with a message, switch to a different branch, and merge a feature branch into the "develop" branch. First, use the command "git commit -m" followed by a descriptive message enclosed in single quotes to commit your changes. This command saves your changes to the current branch with the provided message. Next, execute "git checkout" to switch to the "develop" branch. This command changes your working branch to "develop", allowing you to work on that branch. Finally, use the command "git merge" to merge the changes from the "feature-1" branch into the "develop" branch. This command combines the changes made in the "feature-1" branch with the code in the "develop" branch, incorporating the new features into the development branch.', '', '', 'Commit, Switch, and Merge Exercise');
+
+
+INSERT INTO exercises (description, answer, feedback, exercise_name)
+VALUES ('In this exercise, you will learn how to commit changes with a message, switch branches, and perform merges. Follow the steps below: 
+1. Use the command "git commit -m" followed by a descriptive message enclosed in single quotes to commit your changes.
+2. Execute "git checkout" to switch to the "develop" branch. This command changes your working branch to "develop".
+3. Use the command "git merge" to merge the changes from the "feature-1" branch into the "develop" branch. This command combines the changes made in the "feature-1" branch with the code in the "develop" branch.
+4. Next, execute "git checkout" to switch to the "release" branch.
+5. Finally, use the command "git merge" to merge the changes from the "develop" branch into the "release" branch. This command combines the changes made in the "develop" branch with the code in the "release" branch, ensuring that the release branch includes the latest developments from the development branch.', '', '', 'Advanced Git Branching and Merging Exercise');
+
+
+INSERT INTO exercises (description, answer, feedback, exercise_name)
+VALUES ('In this exercise, you will learn how to commit changes with a message, switch branches, perform merges, and create a new tag. Follow the steps below: 
+1. Use the command "git commit -m" followed by a descriptive message enclosed in single quotes to commit your changes.
+2. Execute "git checkout" to switch to the "develop" branch. This command changes your working branch to "develop".
+3. Use the command "git merge" to merge the changes from the "feature-1" branch into the "develop" branch. This command combines the changes made in the "feature-1" branch with the code in the "develop" branch.
+4. Next, execute "git checkout" to switch to the "release" branch.
+5. Use the command "git merge" to merge the changes from the "develop" branch into the "release" branch. This command combines the changes made in the "develop" branch with the code in the "release" branch, ensuring that the release branch includes the latest developments from the development branch.
+6. Execute "git checkout" to switch to the "master" branch.
+7. Use the command "git merge" to merge the changes from the "master" branch into itself. 
+8. Finally, use the command "git tag" to create a new tag called "v1.0.0". This command marks a specific commit as a significant milestone or release point in your project.', '', '', 'Git Branching, Merging, and Tagging Exercise');
